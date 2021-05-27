@@ -4,7 +4,7 @@ const checkAuth = require("../middlewares/check-auth");
 const UsersController = require("../controllers/auth");
 
 //For handling Get Requests
-router.get("/allAccess", (req, res) => {
+/*router.get("/allAccess", (req, res) => {
   res.status(200).send("Public Content.");
 });
 
@@ -14,7 +14,7 @@ router.get(
   (req, res) => {
     res.status(200).send("Customer Content.");
   }
-);
+);*/
 
 router.post("/signup", UsersController.signup);
 
