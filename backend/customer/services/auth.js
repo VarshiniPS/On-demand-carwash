@@ -16,7 +16,7 @@ router.get(
   }
 );
 
-router.post("/register", UsersController.register);
+router.post("/signup", UsersController.signup);
 
 router.post("/login", UsersController.login);
 

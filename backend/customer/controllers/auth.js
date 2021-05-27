@@ -4,29 +4,28 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const authConfig = require("../config/authConfig");
 
-exports.register = (req, res, next) => {
+exports.signup = (req, res, next) => {
   //console.log("Inside Register");
 
-  if (!req.body.name || !req.body.email || !req.body.password) {
+  /*if (!req.body.name || !req.body.email || !req.body.password) {
     return res.status(400).json(
       { message: "All fields are required" });
-  }
-
-  User.find({ email: req.body.email })
-    .exec()
-    .then((user) => {
-      if (user.length >= 1) {
+  }*/
+        User.find({ email: req.body.email })
+            .exec()
+            .then(user => {
+            if (user.length >= 1) {
         return res.status(409).json({
-          message: "User Already Exist",
+          message: "User Already Exists",
         });
       } else {
-        bcrypt.hash(req.body.password, 10, (err, hash) => {
+            bcrypt.hash(req.body.password, 10, (err, hash) => {
           if (err) {
             return res.status(500).json({
               error: err,
             });
           } else {
-            const user = new User({
+          const user = new User({
               _id: new mongoose.Types.ObjectId(),
               name: req.body.name,
               email: req.body.email,
@@ -35,7 +34,7 @@ exports.register = (req, res, next) => {
             });
             user
               .save()
-              .then((result) => {
+              .then(result => {
                 console.log(result);
                 res.status(201).json({
                   message: "Registered Successfully",
@@ -48,9 +47,9 @@ exports.register = (req, res, next) => {
                   Registartion_Error: err,
                 });
               });
-          }
+          };
         });
-      }
+      };
     });
 };
 
