@@ -2,10 +2,10 @@ const express = require("express");
 const server2 = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require("cors");
-//const authRoutes = require("./services/authServices");
-//const accountRoutes = require("./services/accountServices");
-//const orderRoutes = require("./services/orderServices");
+//const cors = require("cors");
+const authRoutes = require("./services/auth");
+const accountRoutes = require("./services/account");
+const orderRoutes = require("./services/order");
 
 const port=process.env.PORT || 4001;
 
@@ -38,9 +38,9 @@ server2.use((req, res, next) => {
 });
 
 //Every request from customer route goes through this url : /customer
-/*app.use("/customer/auth", authRoutes);
-app.use("/customer/account", accountRoutes);
-app.use("/customer/order", orderRoutes);*/
+server2.use("/customer/auth", authRoutes);
+server2.use("/customer/account", accountRoutes);
+server2.use("/customer/order", orderRoutes);
 
 //Server Side Error Handling
 server2.use((req, res, next) => {
