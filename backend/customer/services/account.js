@@ -3,15 +3,15 @@ const router = express.Router();
 const checkAuth = require("../middlewares/check-auth");
 const AccountController = require("../controllers/account");
 
-router.get(
+/*router.get(
   "/findAll",
   checkAuth.verifyToken,
   AccountController.getAllCustomers
 );
 
-router.get("/findCustById/:custId", AccountController.findCustById);
+router.get("/findCustById/:custId", AccountController.findCustById);*/
 
-router.patch(
+router.put(
   "/updateProfile/:custId",
   [checkAuth.verifyToken, checkAuth.isCustomer],
   AccountController.updateProfile
