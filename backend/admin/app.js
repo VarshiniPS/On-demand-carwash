@@ -11,22 +11,13 @@ const washerRoutes=require('./services/washer');
 
 const port=process.env.PORT || 4000;
 
-/*var corsOptions={
-    origin:"http://localhost:3000",
-};
-
-app.use(cors(corsOptions));*/
-
 const dbURI=mongoose.connect('mongodb+srv://varshinips:qwerty170@cluster0.i2q1n.mongodb.net/carwash?retryWrites=true&w=majority',
 {useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true})
 .catch((err)=>{
     console.log("db connection error:" + err);
 });
 
-//to check db connection
-/*dbURI.once("open",()=>{
-    console.log("connected to mongodb");
-});*/
+
 
 server1.use(bodyparser.urlencoded({
 extended:false
