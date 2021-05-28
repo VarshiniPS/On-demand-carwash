@@ -10,7 +10,7 @@ router.patch(
 );
 
 router.get(
-  "/findInProcessOrders/:washerd",
+  "/findInProcessOrders/:washerId",
   [checkAuth.verifyToken, checkAuth.isWasher],
   OrderController.findInProcessOrders
 );
