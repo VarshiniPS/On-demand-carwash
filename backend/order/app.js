@@ -1,19 +1,20 @@
 const express = require("express");
-const app = express();
+const server4 = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require("cors");
+//const cors = require("cors");
 const dbConfig = require("./config/dbConfig");
-const orderRoutes = require("./services/orderServices");
+const orderRoutes = require("./services/orderservice");
+const port=Process.env.PORT || 4003
 
 /*
 Via Express routes, HTTP request that matches a route will be checked by 
 CORS Middleware before coming to Security layer
 */
-var corsOptions = {
+/*var corsOptions = {
   origin: "http://localhost:3000",
 };
-app.use(cors(corsOptions));
+app.use(cors(corsOptions));*/
 
 //Database Connection
 mongoose
@@ -31,13 +32,13 @@ db.once("open", function () {
   console.log("Connected to MongoDb Database");
 });
 
-app.use(bodyParser.urlencoded({ extended: false }));
+server4.use(bodyParser.urlencoded({ extended: false }));
 
 // parse requests of content-type - application/json
-app.use(bodyParser.json());
+server4.use(bodyParser.json());
 
 //For preventing CORS ERRORS  (Postman is just a testing tool)
-app.use((req, res, next) => {
+server4.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -50,16 +51,16 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/order", orderRoutes);
+server4.use("/order", orderRoutes);
 
 //Server Side Error Handling
-app.use((req, res, next) => {
+server4.use((req, res, next) => {
   const error = new Error("Not found");
   error.status = 404;
   next(error);
 });
 
-app.use((error, req, res, next) => {
+server4.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
     error: {
@@ -68,4 +69,8 @@ app.use((error, req, res, next) => {
   });
 });
 
-module.exports = app;
+server4.listen(()=>{
+    console.log(`server 4 running on ${port}`);
+})
+
+module.exports = server4;
