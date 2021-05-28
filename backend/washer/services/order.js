@@ -1,23 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const checkAuth = require("../middlewares/check-auth");
+//const checkAuth = require("../middlewares/check-auth");
 const OrderController = require("../controllers/order");
 
 router.patch(
   "/updateOrder/:orderId",
-  [checkAuth.verifyToken, checkAuth.isWasher],
+  //[checkAuth.verifyToken, checkAuth.isWasher],
   OrderController.updateOrder
 );
 
 router.get(
   "/findInProcessOrders/:washerId",
-  [checkAuth.verifyToken, checkAuth.isWasher],
+  //[checkAuth.verifyToken, checkAuth.isWasher],
   OrderController.findInProcessOrders
 );
 
 router.get(
   "/findMyOrders/:washerId",
-  [checkAuth.verifyToken, checkAuth.isWasher],
+  //[checkAuth.verifyToken, checkAuth.isWasher],
   OrderController.findMyOrders
 );
 

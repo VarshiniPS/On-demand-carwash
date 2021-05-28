@@ -1,5 +1,5 @@
 const OrderModel = require("../models/ordermodel");
-const MemberModel = require("../models/membermodel");
+const MemberModel = require("../models/washermodel");
 
 //Find IN-PROCESS Orders
 exports.findInProcessOrders = (req, res) => {

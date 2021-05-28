@@ -1,4 +1,4 @@
 module.exports = {
-    secretKey: "admin_server_key",
+    secretKey: "washer_server_key",
   };
   

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = mongoose.Schema({
+const washerSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   name: {
     type: String,
@@ -20,4 +20,4 @@ const userSchema = mongoose.Schema({
   status: { type: String },
 });
 
-module.exports = mongoose.model("member", userSchema);
+module.exports = mongoose.model("washer", washerSchema);

@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+/*const jwt = require("jsonwebtoken");
 const authConfig = require("../config/authConfig");
 const User = require("../models/customermodel");
 
@@ -48,4 +48,4 @@ const checkAuth = {
   isCustomer,
 };
 
-module.exports = checkAuth;
+module.exports = checkAuth;*/

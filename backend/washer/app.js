@@ -4,13 +4,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const accountRoutes = require("./services/account");
 const orderRoutes = require("./services/order");
-const port=process.env.PORT || 4003
+const port=process.env.PORT || 4002
 
-mongoose
-  .connect(
-    `mongodb+srv://root:${dbConfig.PASSWORD}@learnmongodb.tuuzo.mongodb.net/${dbConfig.DBNAME}?retryWrites=true&w=majority`,
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-  )
+
+const dbURI='mongodb+srv://varshinips:qwerty170@cluster0.i2q1n.mongodb.net/Washer';
+mongoose.connect(dbURI,{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .catch((err) => {
     console.log("Database Connection Error: " + err);
   });

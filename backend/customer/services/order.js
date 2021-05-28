@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const router = express.Router();
 const checkAuth = require("../middlewares/check-auth");
 const OrderController = require("../controllers/order");
@@ -9,4 +9,4 @@ router.get(
   OrderController.findMyOrders
 );
 
-module.exports = router;
+module.exports = router;*/

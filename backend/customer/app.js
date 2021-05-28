@@ -5,13 +5,13 @@ const mongoose = require("mongoose");
 //const cors = require("cors");
 const authRoutes = require("./services/auth");
 const accountRoutes = require("./services/account");
-const orderRoutes = require("./services/order");
+//const orderRoutes = require("./services/order");
 
 const port=process.env.PORT || 4001;
 
 //Database Connection
 const dbURI='mongodb+srv://varshinips:qwerty170@cluster0.i2q1n.mongodb.net/Customer?retryWrites=true&w=majority';
-mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true})
+mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true,useFindAndModify:true })
 .catch((err)=>{
     console.log("db connection error:" + err);
 });
@@ -40,7 +40,7 @@ server2.use((req, res, next) => {
 //Every request from customer route goes through this url : /customer
 server2.use("/customer/auth", authRoutes);
 server2.use("/customer/account", accountRoutes);
-server2.use("/customer/order", orderRoutes);
+//server2.use("/customer/order", orderRoutes);
 
 //Server Side Error Handling
 server2.use((req, res, next) => {
