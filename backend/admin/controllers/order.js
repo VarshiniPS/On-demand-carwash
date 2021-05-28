@@ -1,6 +1,7 @@
 const ordermodel=require('../model/ordermodel');
 const membermodel=require('../model/membermodel');
 const customermodel=require('../model/customermodel');
+//give connection order db see the youtube video
 
 //finding placed order
 exports.findPlacedOrders=(req,res)=>{

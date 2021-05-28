@@ -1,5 +1,5 @@
 const Washer=require('../model/membermodel');
-
+//check fro both dbs for this
 //find available washers
 exports.findAvailable=(req,res)=>{
     Washer.find({
