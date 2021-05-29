@@ -15,3 +15,8 @@
   top: 0;
   z-index: 1;
 }
+
+.img1{
+  image-resolution: 100%;
+  background-image: cover;
+}
