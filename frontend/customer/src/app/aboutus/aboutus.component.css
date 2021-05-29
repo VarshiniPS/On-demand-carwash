@@ -1,3 +1,20 @@
 h3{
-    background-color:lightskyblue;
+    color:blue;
+    font-weight: 800;
+}
+
+.s1{
+    font-weight: 600;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.s2{
+    font-weight: 400;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    background-color:whitesmoke;
 }
