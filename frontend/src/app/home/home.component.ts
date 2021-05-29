@@ -1,33 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
-        return [
+        return true;
+        /*[
           { title: 'Card 1', cols: 2, rows: 1 },
           { title: 'Card 2', cols: 2, rows: 1 },
           { title: 'Card 3', cols: 2, rows: 1 },
           { title: 'Card 4', cols: 2, rows: 1 }
-        ];
+        ];*/
       }
 
-      return [
+      return false;
+      /*[
         { title: 'Card 1', cols: 2, rows: 1 },
         { title: 'Card 2', cols: 1, rows: 1 },
         { title: 'Card 3', cols: 1, rows: 2 },
         { title: 'Card 4', cols: 1, rows: 1 }
-      ];
+      ];*/
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver,public appservice:AppService) {}
+  ngOnInit(){
+    this.appservice.getServices().subscribe(currentObserverValue=>{
+      this.isHandset=currentObserverValue;
+      this.loadCards();
+    });
+
+    this.appservice.getServices().subscribe(
+      response =>{
+        this.cardsForHandset=response.handsetCards;
+        this.cardsForWeb=response.webCards;
+        this.loadCards()
+      },
+      error =>{
+
+      }
+      
+    );
+    
+  }
+
+  loadCards(){
+    this.cards=this.isHandset?this.cardsForHandset:this.cardsForWeb;
+  }
 }
+
+

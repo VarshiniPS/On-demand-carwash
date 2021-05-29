@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 //const cors = require("cors");
 const authRoutes = require("./services/auth");
 const accountRoutes = require("./services/account");
-//const orderRoutes = require("./services/order");
+const orderRoutes = require("./services/order");
+const serviceRoutes=require("./services/services");
 
 const port=process.env.PORT || 4001;
 
@@ -40,7 +41,8 @@ server2.use((req, res, next) => {
 //Every request from customer route goes through this url : /customer
 server2.use("/customer/auth", authRoutes);
 server2.use("/customer/account", accountRoutes);
-//server2.use("/customer/order", orderRoutes);
+server2.use("/customer/order", orderRoutes);
+server2.use("/customer/services",serviceRoutes);
 
 //Server Side Error Handling
 server2.use((req, res, next) => {
