@@ -12,7 +12,7 @@ const washerRoutes=require('./services/washer');
 const port=process.env.PORT || 4000;
 
 const dbURI='mongodb+srv://varshinips:qwerty170@cluster0.i2q1n.mongodb.net/carwash';
-mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
+mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true})
 .catch((err)=>{
     console.log("db connection error:" + err);
 });
