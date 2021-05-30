@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
 import { Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -28,18 +29,26 @@ loginProcess(){
       if(result.success){
         console.log(result);
         alert(result.message);
+        this.gotohomepage('homepage');
         }else{
           alert(result.message);
         }
-    })
+    });
   }
 }
 
 gotohomepage(pageName:string):void{
   this.router.navigate([`${pageName}`])
+}
+
 
 }
-}
+
+
+
+
+
+
 
 
 

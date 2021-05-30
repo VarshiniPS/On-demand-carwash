@@ -4,7 +4,7 @@
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
         <mat-tab label="Sign In">
             <mat-card-content>
-              <form [formGroup]="formGroup" (ngSubmit)="loginProcess()" >
+              <form [formGroup]="formGroup" (ngSubmit)="loginProcess();gotohomepage('homepage')">
                 <mat-form-field>
                   <input
                     matInput
@@ -41,7 +41,7 @@
                   mat-raised-button
                   type="submit"
                   color="primary"
-                  class="login-button" (click)="gotohomepage('homepage')">
+                  class="login-button">
                   Sign In
                 </button>
   
