@@ -1,9 +1,23 @@
 /*.img1{
-    background-image: cover;
-
+    min-height: 100vh;
+    background-size: cover;
+    width: 100%;
+    text-align: center;
 }*/
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.container_img {
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+} 
 
 .example-button-toggle-label {
     display: inline-block;
     margin: 16px;
+    
   }
