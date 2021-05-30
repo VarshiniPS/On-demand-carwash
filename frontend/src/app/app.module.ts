@@ -17,13 +17,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomepageComponent
+    HomepageComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
