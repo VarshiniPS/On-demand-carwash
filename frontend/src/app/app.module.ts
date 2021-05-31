@@ -20,6 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { ServicesComponent } from './services/services.component';
+import { OwlModule } from 'ngx-owl-carousel';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactusComponent } from './contactus/contactus.component';
 
 
 @NgModule({
@@ -29,7 +33,9 @@ import { HeaderComponent } from './header/header.component';
     HomepageComponent,
     AboutusComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    ServicesComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,9 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OwlModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

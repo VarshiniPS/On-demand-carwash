@@ -4,12 +4,12 @@ footer p {
   footer p:nth-child(1) {
     font-size: 30px;
     font-weight: bold;
-    color: #191919;
+    color:white;
     line-height: 10px;
   }
   footer p:nth-child(2) {
     font-size: 16px;
-    color: #1b1a1a;
+    color:white;
     width: 600px;
     text-align: center;
   }
@@ -20,6 +20,7 @@ footer p {
     align-items: center;
     justify-content: center;
     position: relative;
+    background-color: black;
   }
   .social-icons a {
     width: 40px;
@@ -27,7 +28,7 @@ footer p {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e6e3e3;
+    background-color:white;
     margin: 20px 10px;
     border-radius: 50%;
   }
@@ -36,21 +37,21 @@ footer p {
   }
   .social-icons i,
   .social i {
-    color: #000000;
+    color: black;
   }
   .social-icons a:hover {
-    background-color: #000000;
+    background-color:rgb(226, 216, 216);
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
     transition: all ease 0.5s;
   }
   .social-icons a:hover i,
   .social a:hover i {
-    color: #ffffff;
+    color: #000000;
     transition: all ease 0.5s;
   }
   
   .copyright {
-    color: #565555;
+    color: #ffffff;
     font-size: 12px;
     position: absolute;
     left: 50%;
@@ -72,15 +73,15 @@ footer p {
     margin: 0px;
     padding: 0px;
     line-height: 0px;
-    background-color: #ffffff;
-    border: 1px solid #cbcbcb;
-    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+    background-color: black;
+    border: 1px solid white;
+    box-shadow: 2px 2px 12px rgba(253, 251, 251, 0.2);
   }
   .social a:hover {
-    background-color: #000000;
+    background-color: #ffffff;
     transition: all ease 0.5s;
   }
   .social i {
     font-size: 20px;
-    color: #2b2b2b;
+    color: #ffffff;
   }

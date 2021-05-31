@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+}
+
+
+img{
+    width: 100%;
+    height: 300px;
+}
+
+.child{
+    border: 1px solid blue;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    
+}
+
+
+h1{
+    font-size: 28px;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    text-decoration: underline overline wavy blue;
+    padding: 14px;
+}
+
+h2{
+    font-weight: bolder;
+    color: cornflowerblue;
+    text-align: center;
+}
+
+figcaption{
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+@media (min-width: 768px){
+    .parent{
+        display:flex;
+    }
+    
+}
+    
