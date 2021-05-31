@@ -26,10 +26,10 @@ initForm(){
 loginProcess(){
   if(this.formGroup.valid){
     this.authservice.login(this.formGroup.value).subscribe(result=>{
-      if(result.success){
+      if(result.role="CUSTOMER"){
         console.log(result);
         alert(result.message);
-        this.gotohomepage('homepage');
+        this.router.navigate(['homepage']);
         }else{
           alert(result.message);
         }
@@ -37,9 +37,9 @@ loginProcess(){
   }
 }
 
-gotohomepage(pageName:string):void{
+/*gotohomepage(pageName:string):void{
   this.router.navigate([`${pageName}`])
-}
+}*/
 
 
 }

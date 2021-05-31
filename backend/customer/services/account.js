@@ -11,6 +11,10 @@ const AccountController = require("../controllers/account");
 
 router.get("/findCustById/:custId", AccountController.findCustById);*/
 
+router.get("/viewProfile/:custId",
+AccountController.viewProfile
+);
+
 router.put(
   "/updateProfile/:custId",
   //[checkAuth.verifyToken, checkAuth.isCustomer],

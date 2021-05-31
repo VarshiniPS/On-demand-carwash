@@ -38,6 +38,12 @@ figcaption{
     font-weight: bold;
     text-align: center;
 }
+
+.button{
+    background-color: red;
+}
+
+
 @media (min-width: 768px){
     .parent{
         display:flex;

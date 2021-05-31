@@ -10,7 +10,6 @@ export class AuthServiceService {
 
   constructor(private http:HttpClient) { }
   login(data):Observable<any>{
-    console.log('hola');
     return this.http.post(`${baseUrl}auth/login`,data);
   }
 }

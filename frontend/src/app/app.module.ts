@@ -24,6 +24,8 @@ import { ServicesComponent } from './services/services.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactusComponent } from './contactus/contactus.component';
+import { CarmodelComponent } from './carmodel/carmodel.component';
+import { SeriesComponent } from './series/series.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { ContactusComponent } from './contactus/contactus.component';
     FooterComponent,
     HeaderComponent,
     ServicesComponent,
-    ContactusComponent
+    ContactusComponent,
+    CarmodelComponent,
+    SeriesComponent
   ],
   imports: [
     BrowserModule,
