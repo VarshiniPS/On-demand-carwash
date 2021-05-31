@@ -6,7 +6,7 @@ const cors = require("cors");
 const authRoutes = require("./services/auth");
 const accountRoutes = require("./services/account");
 const orderRoutes = require("./services/order");
-const serviceRoutes=require("./services/services");
+const serviceRoutes = require("./services/service");
 
 const port=process.env.PORT || 4001;
 

@@ -26,7 +26,7 @@ initForm(){
 loginProcess(){
   if(this.formGroup.valid){
     this.authservice.login(this.formGroup.value).subscribe(result=>{
-      if(result.role="CUSTOMER"){
+      if(result.role=="CUSTOMER"){
         console.log(result);
         alert(result.message);
         this.router.navigate(['homepage']);
