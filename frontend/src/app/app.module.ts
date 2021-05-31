@@ -18,6 +18,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     AppComponent,
     LoginComponent,
     HomepageComponent,
-    AboutusComponent
+    AboutusComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
