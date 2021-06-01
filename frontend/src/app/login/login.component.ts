@@ -29,7 +29,7 @@ loginProcess(){
       if(result.role=="CUSTOMER"){
         console.log(result);
         alert(result.message);
-        this.router.navigate(['services']);
+        this.router.navigate(['carbrand']);
         }else{
           alert(result.message);
         }
@@ -37,9 +37,9 @@ loginProcess(){
   }
 }
 
-/*gotohomepage(pageName:string):void{
+gotomember(pageName:string):void{
   this.router.navigate([`${pageName}`])
-}*/
+}
 
 
 }

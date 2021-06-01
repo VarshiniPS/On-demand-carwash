@@ -5,16 +5,15 @@
     text-align: center;
 }*/
 
-.container {
-    height: 70%;
+/*.container {
+    height: 100%;
     width: 100%;
-}
+}*/
 
 .container_img {
-    height: 100%;
-    width: 60%;
-    object-fit:cover;
-} 
+    width: 100%;
+    
+}
 
 .example-button-toggle-label {
     display: inline-block;
@@ -67,3 +66,5 @@
           color: darkblue;
           font-size: larger;
       }
+
+      

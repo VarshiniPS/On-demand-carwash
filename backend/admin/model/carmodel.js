@@ -6,10 +6,6 @@ const carSchema=mongoose.Schema({
         required:true,
         unique:true
     },
-    brand:{
-        type:String,
-        required:true
-    }
 });
 
 module.exports=mongoose.model("car",carSchema);

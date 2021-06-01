@@ -10,16 +10,16 @@ router.post(
   CarController.addCar
 );
 
-router.get("/findAll", CarController.findAllCars);
+router.get("/findAllCars", CarController.findAllCars);
 
 //FInd All Brands
-router.get("/findAllBrands", CarController.findAllBrands);
+////router.get("/findAllBrands", CarController.findAllBrands);
 
 //Find All Cars Specific Brand
-router.post("/findByBrand", CarController.findByBrand);
+//router.post("/findByBrand", CarController.findByBrand);
 
 //FInd Car By It's Name
-router.get("/findByCar/:carId", CarController.findByCarId);
+//router.get("/findByCar/:carId", CarController.findByCarId);
 
 //Update Car Details
 router.patch(

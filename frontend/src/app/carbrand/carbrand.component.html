@@ -1,0 +1,31 @@
+<div class="container">
+    <img src="assets/images/carmodel.jpg" class="container_img">
+</div>
+
+<div class="text">
+<h1>AVAILABLE CARS</h1>
+
+<div class="container">
+<table>
+<tbody>
+<tr *ngFor='let Cars of Cars'>
+<td><button (click)="gotomodel('carmodel')" mat-raised-button color="primary">{{Cars}}</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!--<div class="example-button-row" >
+  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[0]}}</button>
+  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[1]}}</button>
+  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[2]}}</button>
+  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[3]}}</button>
+  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[4]}}</button>
+  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[5]}}</button>
+  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[6]}}</button>
+  <button mat-raised-button>{{carbrands[7]}}</button>
+  <button mat-raised-button>{{carbrands[8]}}</button>
+  <button mat-raised-button>{{carbrands[9]}}</button>
+  <button mat-raised-button>{{carbrands[10]}}</button>
+  <button mat-raised-button>{{carbrands[11]}}</button>
+</div>-->
