@@ -29,7 +29,7 @@ loginProcess(){
       if(result.role=="CUSTOMER"){
         console.log(result);
         alert(result.message);
-        this.router.navigate(['homepage']);
+        this.router.navigate(['services']);
         }else{
           alert(result.message);
         }

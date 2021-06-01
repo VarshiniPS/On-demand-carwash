@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class PlaceOrderService {
 
   constructor(private http:HttpClient) { }
-  service(data):Observable<any>{
+  //service(data):Observable<any>{
     //return this.http.post(data);
-  }
+  //}
 }
