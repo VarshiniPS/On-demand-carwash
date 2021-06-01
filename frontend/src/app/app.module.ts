@@ -30,6 +30,12 @@ import { CarbrandComponent } from './carbrand/carbrand.component';
 import { OrderComponent } from './order/order.component';
 import { HeadComponent } from './head/head.component';
 import { LoginmemberComponent } from './loginmember/loginmember.component';
+import { NavComponent } from './nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { AdminComponent } from './admin/admin.component';
+import { WasherComponent } from './washer/washer.component';
 
 
 @NgModule({
@@ -47,7 +53,10 @@ import { LoginmemberComponent } from './loginmember/loginmember.component';
     CarbrandComponent,
     OrderComponent,
     HeadComponent,
-    LoginmemberComponent
+    LoginmemberComponent,
+    NavComponent,
+    AdminComponent,
+    WasherComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +75,10 @@ import { LoginmemberComponent } from './loginmember/loginmember.component';
     ReactiveFormsModule,
     HttpClientModule,
     OwlModule,
-    NgbModule
+    NgbModule,
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
