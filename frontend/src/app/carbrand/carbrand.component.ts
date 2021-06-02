@@ -19,10 +19,11 @@ export class cars{
 
 export class CarbrandComponent implements OnInit {
 
-Cars:cars[];
+selectedcar:any='';
+Cars:cars[]=[];
 
   constructor( private http:HttpClient,private router:Router) { }
-
+  
   ngOnInit(): void {
     this.getcars();
   }
@@ -36,9 +37,15 @@ Cars:cars[];
     );
   }
 
-  gotomodel(pageName:string):void{
+ /* gotomodel(pageName:string):void{
     this.router.navigate([`${pageName}`])
 
+  }*/
+
+  radioChangeHandler (event:any){
+    (this.selectedcar=event.target.value);
+    this.router.navigate(['carmodel']);
+    
   }
 
 }

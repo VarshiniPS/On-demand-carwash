@@ -5,27 +5,21 @@
 <div class="text">
 <h1>AVAILABLE CARS</h1>
 
-<div class="container">
+<!--<div  class="container">
 <table>
 <tbody>
-<td *ngFor='let Cars of Cars'>
-<tr rowspan="1"><button (click)="gotomodel('carmodel')" mat-raised-button color="primary">{{Cars}}</button></tr>
+<td *ngFor='let car of Cars'>
+<tr>
+  <button type="submit" (click)="getval($event)" mat-raised-button color="primary">{{car}}</button></tr>
 </td>
 </tbody>
 </table>
+</div>-->
+
+<div *ngFor="let car of Cars">
+  <input type="radio" value="{{car}}" (change)="radioChangeHandler($event)">
+  <i>{{car}}</i>
+
 </div>
 
-<!--<div class="example-button-row" >
-  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[0]}}</button>
-  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[1]}}</button>
-  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[2]}}</button>
-  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[3]}}</button>
-  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[4]}}</button>
-  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[5]}}</button>
-  <button (click)="gotomodel('carmodel')" mat-raised-button>{{carbrands[6]}}</button>
-  <button mat-raised-button>{{carbrands[7]}}</button>
-  <button mat-raised-button>{{carbrands[8]}}</button>
-  <button mat-raised-button>{{carbrands[9]}}</button>
-  <button mat-raised-button>{{carbrands[10]}}</button>
-  <button mat-raised-button>{{carbrands[11]}}</button>
-</div>-->
+<p><span>you selected</span><b>{{selectedcar}}</b></p>
