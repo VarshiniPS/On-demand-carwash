@@ -41,9 +41,10 @@ services:Services[]=[];
   );
 }
 
-gotoorder(){
-  this.router.navigate()
+gotoorder(pageName:string){
+  this.router.navigate([`${pageName}`])
+  }
 }
 
 
-}
+

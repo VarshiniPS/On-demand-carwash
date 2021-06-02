@@ -108,7 +108,7 @@
     <div class="container">
         <table>
             <tbody>
-                <tr *ngFor="let service of services" (ngsubmit)="gotoorder()">
+                <tr *ngFor="let service of services">
                     <td><button><h2>
                         {{service.serviceType}}
                     </h2>
@@ -121,7 +121,7 @@
                     <br>
                     {{service.where}}
                     <br>
-                    <button type="submit" mat-raised-button color="warn">Choose this service</button>
+                    <button (click)="gotoorder('order')" mat-raised-button color="warn">Choose this service</button>
                 </tile>
             </button>
                 </td>
