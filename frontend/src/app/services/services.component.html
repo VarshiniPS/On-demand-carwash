@@ -63,16 +63,74 @@
                 <p>7000</p>
                 <p>This is a deep cleaning procedure -->
 
-<div class="container">
+<!--<div class="container">
     <thead>
         <tr>
             <th>CAR WASH</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let service of services">
-            <td>{{service.serviceType}}</td>
+        <tr *ngFor="let serv of services">
+            <td>{{services}}</td>
             
         </tr>
     </tbody>
+</div>-->
+
+<!--<table>
+    <tr>
+        <td>name</td>
+        <td>type</td>
+        <td>price</td>
+    </tr>
+    <tr *ngFor="let obj of services|keyvalue">
+        <td>{{obj}}</td>
+    </tr>
+</table>-->
+
+<!--<div *ngFor="let service of services|keyvalue;index as i">
+    <p>{{service.key}}</p>
+    <p>{{service.value[i].serviceType}}</p>
+    <p>{{service.value[i].name}}</p>
+    <p>{{service.value[i].description}}</p>
+    <p>{{service.value[i].timeRequired}}</p>
+    <p>{{service.value[i].where}}</p>
+</div>-->
+
+
+<!--<div *ngFor="let i of services" >
+    {{i.price}}
+</div>-->
+<div>
+    <img src="assets/images/slide2.jpg">
+<div class="text">
+    <h1>AVAILABLE </h1>
+    <div class="container">
+        <table>
+            <tbody>
+                <tr *ngFor="let service of services" (ngsubmit)="gotoorder()">
+                    <td><button><h2>
+                        {{service.serviceType}}
+                    </h2>
+                    {{service.name}}
+                <tile>{{service.price}}
+                    <br>
+                    {{service.description}}
+                    <br>
+                    {{service.timeRequired}}
+                    <br>
+                    {{service.where}}
+                    <br>
+                    <button type="submit" mat-raised-button color="warn">Choose this service</button>
+                </tile>
+            </button>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+</div>
+<app-footer></app-footer>
+
+  

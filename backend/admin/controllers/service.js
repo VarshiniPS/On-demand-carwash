@@ -47,7 +47,7 @@ exports.findAll=(req,res)=>{
         });
     }else{
         res.status(200).json({
-           //service: response
+           service: response
         });
     }
     })
