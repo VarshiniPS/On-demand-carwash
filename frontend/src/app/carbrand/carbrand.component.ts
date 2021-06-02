@@ -43,7 +43,7 @@ Cars:cars[]=[];
   }*/
 
   radioChangeHandler (event:any){
-    (this.selectedcar=event.target.value);
+    this.selectedcar=event.target.value;
     this.router.navigate(['carmodel']);
     
   }
