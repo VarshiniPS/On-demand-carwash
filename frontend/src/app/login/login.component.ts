@@ -29,7 +29,7 @@ loginProcess(){
       if(result.role=="CUSTOMER"){
         console.log(result);
         alert(result.message);
-        this.router.navigate(['carbrand']);
+        this.router.navigate(['head']);
         }else{
           alert(result.message);
         }

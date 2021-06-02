@@ -8,9 +8,9 @@
 <div class="container">
 <table>
 <tbody>
-<tr *ngFor='let Cars of Cars'>
-<td rowspan="1"><button (click)="gotomodel('carmodel')" mat-raised-button color="primary">{{Cars}}</button></td>
-</tr>
+<td *ngFor='let Cars of Cars'>
+<tr rowspan="1"><button (click)="gotomodel('carmodel')" mat-raised-button color="primary">{{Cars}}</button></tr>
+</td>
 </tbody>
 </table>
 </div>

@@ -8,8 +8,10 @@ import { HeaderComponent } from './header/header.component'
 import { CarbrandComponent} from './carbrand/carbrand.component'
 import { LoginmemberComponent } from './loginmember/loginmember.component';
 import { AdminComponent } from './admin/admin.component';
+import { HeadComponent } from './head/head.component';
 const routes: Routes = [
   {path:'',component:HeaderComponent},
+  {path:'head',component:HeadComponent},
   {path:'carbrand',component:CarbrandComponent},
   {path:'carmodel',component:ServicesComponent},
   {path:'member',component:LoginmemberComponent},

@@ -1,4 +1,4 @@
-<div>
+<!--<div>
     <div>
                 <img src="assets/images/slide2.jpg">
             <h1>SERVICES</h1>
@@ -61,33 +61,18 @@
                 <img src="assets/images/sec4.jpg">
                 <figcaption>INTERIOR PREMIUM PLUS</figcaption>
                 <p>7000</p>
-                <p>This is a deep cleaning procedure for the interiors of the car. The dashboard, door pads, seats hand brake gear area, and the floor will be cleaned using a cleaners. The highlight of this service is the Germclean foam used, which kill all kinds of bacteria, germs and fungi. The AC foam used in this service will go to every corner of the AC dusts. AC Sanitization is done. Sanitation of the interiors make the car protected for children. Enjoy the experience!</p>
-                <button mat-raised-button color="warn">Choose this service</button>
-            </section>
-            </section>
-            </div>
+                <p>This is a deep cleaning procedure -->
+
+<div class="container">
+    <thead>
+        <tr>
+            <th>CAR WASH</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let service of services">
+            <td>{{service.serviceType}}</td>
             
-            <br>
-            <br>
-            <div>
-                <h2>EXTERIOR DETAILING</h2>
-            <section class="parent">
-            <section class="child">
-                <img src="assets/images/sec7.jpg">
-                <figcaption>EXTERIOR ESSENTIAL</figcaption>
-                <p>4000</p>
-                <p>This service is recommended for new cars and if paint protection treatment has been done in the last 6 to 8 months. Along with the cleaning of hard water marks along the beadings and logos, the glazing procedure ensures removal of dullness and gives a good shine to the surface. The final waxing of the surface prevents the formation of minor scratches and hard water marks on the surface. Enjoy the experience!</p>
-                <button mat-raised-button color="warn">Choose this service</button>
-            </section>
-            <section class="child">
-                <img src="assets/images/sec8.jpg">
-                <figcaption>PAINT PROTECTION TREATMENT</figcaption>
-                <p>6000</p>
-                <p>This service concentrates on the exteriors of the car to the utmost detail. Highly recommended if the car is older than two years. During this procedure, the dullness on the surface will be removed, retrieving about 80% of the original colour of the car. In comparison to the wash n wax or exterior essential treatment, minor scratches, hard water marks along the edges, beadings and logos will be removed. Enjoy the experience!</p>
-                <button mat-raised-button color="warn">Choose this service</button>
-                </section>
-            </section>
-            </div>
-            </div>
-    
-<app-footer></app-footer>
+        </tr>
+    </tbody>
+</div>

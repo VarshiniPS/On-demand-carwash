@@ -9,7 +9,7 @@ exports.login=(req,res,next)=>{
         email:req.body.email
     })
     .exec()
-    .then((user)=>{
+    .then(user=>{
         if(!user){
             return res.status(401).json({
                 message:"auth failed"
@@ -64,7 +64,7 @@ exports.signup=(req,res,next)=>{
         email:req.body.email
     })
     .exec()
-    .then((user)=>{
+    .then(user=>{
         if(user.length>=1){
             return res.status(409).json({
                 message:"member already exists"
