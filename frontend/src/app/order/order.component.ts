@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService} from '../order.service';
 import { ServiceplanService} from '../serviceplan.service';
 import { PersonaldetailService } from '../personaldetail.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl,FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-
+public formGroup:FormGroup;
 public cartype=''; 
 public serviceplanchosen='';
 public personaldetails:any='';
@@ -27,10 +27,19 @@ public personaldetails:any='';
       });
       this.personaldetail.on<any>().subscribe(data=>{
         this.personaldetails=data;
-      })
+      });
+      this.initForm();
   }
-
-  orderplaced(){
-
+  initForm(){
+    this.formGroup=new FormGroup({
+      email:new FormControl(this.formGroup),
+      name:new FormControl('')
+    });
   }
+  
+
+orderplaced(){
+  alert('order placed');
+console.log(this.formGroup.value);
+}
 }

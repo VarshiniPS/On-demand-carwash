@@ -37,6 +37,7 @@ import { MatListModule } from '@angular/material/list';
 import { AdminComponent } from './admin/admin.component';
 import { WasherComponent } from './washer/washer.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { IconheaderComponent } from './iconheader/iconheader.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     LoginmemberComponent,
 
     AdminComponent,
-    WasherComponent
+    WasherComponent,
+    IconheaderComponent
   ],
   imports: [
     BrowserModule,

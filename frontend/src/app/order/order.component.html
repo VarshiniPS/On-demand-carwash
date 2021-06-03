@@ -6,6 +6,7 @@
                 <h1>ORDER SUMMARRY</h1>
                 </div>
                 <div class="content">
+                    <form  [formGroup]="formGroup" (ngSubmit)="orderplaced()">
                     <mat-form-field>
                         <input
                         matInput
@@ -17,6 +18,7 @@
                             <input
                             matInput
                             placeholder="Email id"
+                            
                             value="{{personaldetails.email}}">
                         </mat-form-field>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -24,6 +26,7 @@
                         <input
                         matInput
                         placeholder="cartype"
+                        
                         value="{{cartype}}">
                         </mat-form-field>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -31,6 +34,7 @@
                     <input
                     matInput
                     placeholder="serviceplan"
+                    
                     value="{{serviceplanchosen}}">
                     </mat-form-field>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -46,6 +50,7 @@
                     <div class="button">
                         <button mat-raised-button color="warn" (click)="orderplaced()" >PLACE ORDER </button>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
