@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
 import { Router} from '@angular/router';
-
+import  { PersonaldetailService } from '../personaldetail.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ import { Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   formGroup:FormGroup;
-  constructor(private authservice:AuthServiceService,private router:Router) {}
+  constructor(private authservice:AuthServiceService,private router:Router,private personaldetail:PersonaldetailService) {}
 
   ngOnInit(){
     this.initForm();
@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
 initForm(){
   this.formGroup=new FormGroup({
     email:new FormControl('',[Validators.required]),
-    password:new FormControl('',[Validators.required])
+    password:new FormControl('',[Validators.required]),
+    name:new FormControl('',[Validators.required])
   });
 }
   
@@ -35,6 +36,7 @@ loginProcess(){
         }
     });
   }
+  this.personaldetail.emit<any>(this.formGroup.value);
 }
 
 gotomember(pageName:string):void{

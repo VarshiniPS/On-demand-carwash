@@ -1,7 +1,40 @@
-<p>order works!</p>
-<div class="container">
-    <h1>ORDER SUMMARY</h1>
-    <section>
-        
-    </section>
-</div>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+<div class="section">
+        <div class="container">
+            <div class="content-section">
+                <div class="title">
+                <h1>ORDER SUMMARRY</h1>
+                </div>
+                <div class="content">
+                    <h3>
+                       PERSONAL DETAILS:
+                       <p>Name:{{personaldetails.name}} </p>
+                       <p>Email id:{{personaldetails.email}}</p>
+                    </h3>
+                    <hr />
+                    <h3>
+                    SERVICE DETAILS:
+                    <p>CAR-TYPE CHOSEN : {{cartype}}</p>
+                    <p>SERVICE PLAN:{{serviceplanchosen}}</p>
+                    </h3>
+                    <p>
+                    <mat-form-field appearance="fill">
+                    <mat-label>Vehicle Number</mat-label>
+                    <input matInput placeholder="Vehicle Number">
+                    </mat-form-field>
+                    &nbsp;&nbsp;&nbsp;
+                    <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Address">
+                    </mat-form-field>
+                    </p>
+                    
+
+                    <div class="button">
+                        <button (click)="orderplaced()" >PLACE ORDER </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    

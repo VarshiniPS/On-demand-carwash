@@ -4,7 +4,16 @@
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
         <mat-tab label="Sign In">
             <mat-card-content>
-              <form [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+              <form  [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Name"
+                    formControlName="name"
+                    required
+                    name="name"
+                     >
+                </mat-form-field>
                 <mat-form-field>
                   <input
                     matInput

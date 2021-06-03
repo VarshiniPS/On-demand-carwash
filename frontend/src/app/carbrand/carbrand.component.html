@@ -17,9 +17,7 @@
 </div>-->
 
 <div *ngFor="let car of Cars">
-  <input type="radio" value="{{car}}" (change)="radioChangeHandler($event)">
-  <i>{{car}}</i>
-
+  <input type="button" value="{{car}}" (click)="buttonChangeHandler($event)" mat-raised-button color="warn">
 </div>
 
-<p><span>you selected</span><b>{{selectedcar}}</b></p>
+

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
-
+import  { ServiceplanService } from '../serviceplan.service';
 
 export class Services{
   constructor(
@@ -23,8 +23,9 @@ export class Services{
   
 })
 export class ServicesComponent implements OnInit {
+  selectedservice:any ='';
 services:Services[]=[];
-  constructor(private router:Router,private http:HttpClient) {
+  constructor(private router:Router,private http:HttpClient,private serviceplan:ServiceplanService) {
     
    }
   ngOnInit(){
@@ -41,9 +42,21 @@ services:Services[]=[];
   );
 }
 
-gotoorder(pageName:string){
+
+selectedService (event:any){
+    this.selectedservice=event.target.value;
+    console.log(this.selectedservice);
+    this.serviceplan.emit<any>(this.selectedservice);
+    this.gotoorder('order');
+    //this.gotoorder('order');
+    //this.router.navigate(['carmodel']);
+}
+
+gotoorder(pageName:string):void{
   this.router.navigate([`${pageName}`])
   }
+
+
 }
 
 

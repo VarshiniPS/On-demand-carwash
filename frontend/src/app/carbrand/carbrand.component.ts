@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import  { OrderService } from '../order.service';
 
 export class cars{
   constructor(
@@ -22,7 +23,7 @@ export class CarbrandComponent implements OnInit {
 selectedcar:any='';
 Cars:cars[]=[];
 
-  constructor( private http:HttpClient,private router:Router) { }
+  constructor( private http:HttpClient,private router:Router,private orderservice:OrderService) { }
   
   ngOnInit(): void {
     this.getcars();
@@ -37,15 +38,20 @@ Cars:cars[]=[];
     );
   }
 
- /* gotomodel(pageName:string):void{
-    this.router.navigate([`${pageName}`])
-
-  }*/
-
-  radioChangeHandler (event:any){
+  
+  buttonChangeHandler (event:any){
     this.selectedcar=event.target.value;
-    this.router.navigate(['carmodel']);
+    console.log(this.selectedcar);
+    this.orderservice.emit<any>(this.selectedcar);
+    this.gotomodel('carmodel');
+    //this.router.navigate(['carmodel']);
     
   }
+
+  gotomodel(pageName:string):void{
+    this.router.navigate([`${pageName}`])
+
+  }
+
 
 }

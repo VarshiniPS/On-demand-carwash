@@ -104,14 +104,15 @@
 <div>
     <img src="assets/images/slide2.jpg">
 <div class="text">
-    <h1>AVAILABLE </h1>
+    <h1>AVAILABLE SERVICES</h1>
     <div class="container">
         <table>
             <tbody>
                 <tr *ngFor="let service of services">
-                    <td><button><h2>
+                    <td><h2>
                         {{service.serviceType}}
                     </h2>
+                    <button>
                     {{service.name}}
                 <tile>{{service.price}}
                     <br>
@@ -121,9 +122,9 @@
                     <br>
                     {{service.where}}
                     <br>
-                    <button (click)="gotoorder('order')" mat-raised-button color="warn">Choose this service</button>
-                </tile>
-            </button>
+                    <input class="button" type="button"  value="{{service.name}},{{service.price}}" (click)="selectedService($event)" mat-raised-button color="warn">
+                    </tile>
+                    </button>
                 </td>
                 </tr>
             </tbody>
