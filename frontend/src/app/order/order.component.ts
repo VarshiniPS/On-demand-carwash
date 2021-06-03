@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService} from '../order.service';
 import { ServiceplanService} from '../serviceplan.service';
 import { PersonaldetailService } from '../personaldetail.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-order',

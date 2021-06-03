@@ -6,18 +6,32 @@
                 <h1>ORDER SUMMARRY</h1>
                 </div>
                 <div class="content">
-                    <h3>
-                       PERSONAL DETAILS:
-                       <p>Name:{{personaldetails.name}} </p>
-                       <p>Email id:{{personaldetails.email}}</p>
-                    </h3>
-                    <hr />
-                    <h3>
-                    SERVICE DETAILS:
-                    <p>CAR-TYPE CHOSEN : {{cartype}}</p>
-                    <p>SERVICE PLAN:{{serviceplanchosen}}</p>
-                    </h3>
-                    <p>
+                    <mat-form-field>
+                        <input
+                        matInput
+                        placeholder="name"
+                        value="{{personaldetails.name}}">
+                        </mat-form-field>
+                        &nbsp;&nbsp;&nbsp;  
+                        <mat-form-field>
+                            <input
+                            matInput
+                            placeholder="Email id"
+                            value="{{personaldetails.email}}">
+                        </mat-form-field>
+                    <mat-form-field>
+                        <input
+                        matInput
+                        placeholder="cartype"
+                        value="{{cartype}}">
+                        </mat-form-field>
+                        &nbsp;&nbsp;&nbsp;  
+                    <mat-form-field>
+                    <input
+                    matInput
+                    placeholder="serviceplan"
+                    value="{{serviceplanchosen}}">
+                    </mat-form-field>
                     <mat-form-field appearance="fill">
                     <mat-label>Vehicle Number</mat-label>
                     <input matInput placeholder="Vehicle Number">
@@ -27,9 +41,6 @@
                     <mat-label>Address</mat-label>
                     <input matInput placeholder="Address">
                     </mat-form-field>
-                    </p>
-                    
-
                     <div class="button">
                         <button (click)="orderplaced()" >PLACE ORDER </button>
                     </div>
