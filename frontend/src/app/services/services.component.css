@@ -3,9 +3,13 @@
 }
 
 
-img{
-    width: 100%;
-    height: 300px;
+/*img{
+    width: 98%;
+    height: 40%;
+}*/
+
+.gif{
+text-align: center;
 }
 
 .child{
@@ -19,11 +23,11 @@ img{
 
 
 h1{
-    font-size: 28px;
+    font-size: 68px;
     font-family: sans-serif;
     color: black;
     text-align: center;
-    text-decoration: underline overline wavy blue;
+    text-decoration: underline overline blue;
     padding: 14px;
 }
 
@@ -41,6 +45,11 @@ figcaption{
 
 .button{
     background-color: red;
+}
+
+.row{
+    width: 60px;
+    height: auto;
 }
 
 

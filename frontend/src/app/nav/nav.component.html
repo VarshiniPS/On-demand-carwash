@@ -1,29 +1,25 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>HOME</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">CARS</a>
-      <a mat-list-item href="#">SERVICES</a>
-      <a mat-list-item href="#">WASHERS</a>
-      <a mat-list-item href="#">ORDERS</a>
-      <a mat-list-item href="#">LOGOUT</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>THE CAR SPA</span>
-    </mat-toolbar>
-    <!-- Add Content Here -->
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<mat-tab-group mat-align-tabs="end" animationDuration="900ms" backgroundColor="primary" >
+  <mat-tab label="MY Orders" >
+       
+      <app-footer></app-footer>
+  </mat-tab>
+  
+  
+  <mat-tab label="PROFILE" >
+    
+      <app-footer></app-footer>
+  </mat-tab>
+  
+  <mat-tab label="LOGOUT" >
+      <br>
+      <div class="logout">
+      <br>
+      <h3>It was good seeing you,Washer</h3>
+      <strong><h3>Do yo want to LOGOUT?</h3></strong>
+      <button mat-raised-button color="warn" (click)="gotohome('')">LOGOUT</button><br><br>
+      <h2>You have successfully logged out!!</h2><br>
+      <h2>THANK YOU!</h2>
+  </div>
+  </mat-tab>
+  
+  </mat-tab-group>

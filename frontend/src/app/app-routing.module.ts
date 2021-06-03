@@ -10,6 +10,7 @@ import { LoginmemberComponent } from './loginmember/loginmember.component';
 import { AdminComponent } from './admin/admin.component';
 import { HeadComponent } from './head/head.component';
 import { OrderComponent } from './order/order.component';
+import { WasherComponent } from './washer/washer.component';
 const routes: Routes = [
   {path:'',component:HeaderComponent},
   {path:'head',component:HeadComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'carmodel',component:ServicesComponent},
   {path:'member',component:LoginmemberComponent},
   {path:'adash',component:AdminComponent},
-  {path:'order',component:OrderComponent}
+  {path:'order',component:OrderComponent},
+  {path:'washer',component:WasherComponent}
   
 ];
 

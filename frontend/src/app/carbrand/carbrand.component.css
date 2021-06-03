@@ -1,13 +1,15 @@
-.container_img {
-    height:10%;
-    background-size: cover;
+.container {
+    height:70%;
     width: 100%;
     text-align: center;
 } 
 
-/*.text{
-    color:blue;
-    text-align:center;
-    font-size: 46px;
-}*/
+.text{
+    color:white;
+    text-align: center;
+    font-size: 106px;
+    display:block;
+    font-weight: 900;
+    background-color:black;
+}
 

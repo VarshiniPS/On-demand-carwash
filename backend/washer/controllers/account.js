@@ -80,7 +80,7 @@ exports.signup=(req,res,next)=>{
                         email:req.body.email,
                         password:hash,
                         mobile:req.body.mobile,
-                        //role:req.body.role,
+                        role:req.body.role,
                         status:req.body.status
                     });
                     Washer.save()

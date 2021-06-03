@@ -1,1 +1,24 @@
-<app-nav></app-nav>
+<mat-tab-group mat-align-tabs="end" animationDuration="900ms" backgroundColor="primary" >
+    <mat-tab label="Orders" >
+         
+    </mat-tab>
+
+    <mat-tab label="Services" >
+         
+    </mat-tab>
+    
+    <mat-tab label="LOGOUT" >
+        <br>
+        <div class="logout">
+        <br>
+        <h3>ADIOS,Admin!!</h3>
+        <strong><h3>Do yo want to LOGOUT?</h3></strong>
+        <button mat-raised-button color="warn" (click)="gotohome('')">LOGOUT</button><br><br>
+        <h2>YOU HAVE SUCCESSFULLY LOGGED OUT!!</h2><br>
+        <h2>THANK YOU!!!</h2>
+    </div>
+    </mat-tab>
+    
+    </mat-tab-group>
+
+    <app-footer></app-footer>

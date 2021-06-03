@@ -1,23 +1,10 @@
 <div class="container">
-    <img src="assets/images/carmodel.jpg" class="container_img">
+    <img src="assets/images/gif2.gif" >
 </div>
-
 <div class="text">
 <h1>AVAILABLE CARS</h1>
-
-<!--<div  class="container">
-<table>
-<tbody>
-<td *ngFor='let car of Cars'>
-<tr>
-  <button type="submit" (click)="getval($event)" mat-raised-button color="primary">{{car}}</button></tr>
-</td>
-</tbody>
-</table>
-</div>-->
-
 <div *ngFor="let car of Cars">
-  <input type="button" value="{{car}}" (click)="buttonChangeHandler($event)" mat-raised-button color="warn">
+  <input class="button" type="button" value="{{car}}" (click)="buttonChangeHandler($event)" mat-raised-button color="warn">
 </div>
 
 

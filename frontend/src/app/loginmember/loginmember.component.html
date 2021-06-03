@@ -1,48 +1,135 @@
-<div class="center-content">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>Login/Register</mat-card-title>
-    </mat-card-header>
-      <mat-card-content>
-        <mat-tab-group>
-          <mat-tab label="Login">
-            <form [formGroup]="formGroup" (ngSubmit)="memberlogin();gotoadash('adash')">
-            <mat-form-field class="example-full-width">
-              <mat-label>Email</mat-label>
-              <input type="email" matInput placeholder="Email" >
-              <mat-icon matSuffix>email</mat-icon>
-            </mat-form-field>
-  
-            <mat-form-field class="example-full-width">
-              <mat-label>Password</mat-label>
-              <input type="password" matInput placeholder="Password" >
-              <mat-icon matSuffix>vpn_key</mat-icon>
-            </mat-form-field>
-            <button  type="submit" color="primary">Login</button>
+<div class="login-page">
+  <mat-card class="mat-elevation-z12">
+    <mat-card-title style="text-align:center;">SignIn/SignUp As Member</mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
+      <mat-tab label="Sign In">
+          <mat-card-content>
+            <form [formGroup]="formGroup" (ngSubmit)="adminlogin()" or (ngSubmit)="washerlogin()">
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Email"
+                  formControlName="email"
+                  required
+                  name="email"
+                  >
+                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                <mat-icon matSuffix>email</mat-icon>
+              </mat-form-field>
+              <mat-form-field>
+                <input
+                  matInput
+                  placeholder="Password"
+                  formControlName="password"
+                  type="password"
+                  required
+                  minlength="2"
+                  name="password"
+                 >
+                  <mat-error
+                    *ngIf="password.errors && password.errors.required">
+                    Password is required
+                  </mat-error>
+                  <mat-error
+                    *ngIf="password.errors && password.errors.minlength">
+                    Password must be of length more than 2
+                  </mat-error>
+                <mat-icon matSuffix>lock</mat-icon>
+              </mat-form-field>
+              <mat-checkbox>Remember Me!</mat-checkbox>
+              <button
+                mat-raised-button
+                type="submit"
+                color="primary"
+                class="login-button"
+                >
+                Sign In
+              </button>
+              
             </form>
-          </mat-tab>
+          </mat-card-content>
+      </mat-tab>
 
-          <mat-tab label="Register">
-            <mat-form-field class="example-full-width">
-              <mat-label>Email</mat-label>
-              <input type="email" matInput placeholder="Email" value="" >
+
+      <mat-tab label="Sign Up">
+        <mat-card-content>
+          <form action="">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="User Name"
+                required
+                name="username"
+                ngModel
+                #username="ngModel">
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error
+                *ngIf="username.invalid">
+                Username is required
+              </mat-error>
+
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Email"
+                required
+                name="email"
+                ngModel
+                #email="ngModel">
+                <mat-error *ngIf="email.invalid">Email is required</mat-error>
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
-  
-            <mat-form-field class="example-full-width">
-              <mat-label>Password</mat-label>
-              <input type="password" matInput placeholder="Password" >
-              <mat-icon matSuffix>vpn_key</mat-icon>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Password"
+                type="password"
+                required
+                minlength="2"
+                name="password"
+                ngModel
+                #password="ngModel">
+                <mat-error
+                  *ngIf="password.errors && password.errors.required">
+                  Password is required
+                </mat-error>
+                <mat-error
+                  *ngIf="password.errors && password.errors.minlength">
+                  Password must be of length more than 2
+                </mat-error>
+              <mat-icon matSuffix>lock</mat-icon>
+
             </mat-form-field>
-            <mat-form-field class="example-full-width">
-              <mat-label>Password</mat-label>
-              <input type="password" matInput placeholder="Password" >
-              <mat-icon matSuffix>vpn_key</mat-icon>
+
+
+            <mat-form-field>
+                <input
+                matInput
+                placeholder="Password"
+                type="password"
+                required
+                minlength="2"
+                name="repassword"
+                ngModel
+                #repassword="ngModel">
+                <mat-error
+                  *ngIf="repassword.errors && repassword.errors.required">
+                  Re-Enter Password is required
+                </mat-error>
+              <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
-            <button mat-button color="primary" >Register</button>
-            </mat-tab>
-        </mat-tab-group>
-      </mat-card-content>
-  
-    </mat-card>
-  </div>
+            <button
+              mat-raised-button
+              color="primary"
+              class="login-button">
+              Sign Up
+            </button>
+           
+          </form>
+          
+        </mat-card-content>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

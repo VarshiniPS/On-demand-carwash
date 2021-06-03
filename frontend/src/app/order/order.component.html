@@ -12,37 +12,39 @@
                         placeholder="name"
                         value="{{personaldetails.name}}">
                         </mat-form-field>
-                        &nbsp;&nbsp;&nbsp;  
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                         <mat-form-field>
                             <input
                             matInput
                             placeholder="Email id"
                             value="{{personaldetails.email}}">
                         </mat-form-field>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <mat-form-field>
                         <input
                         matInput
                         placeholder="cartype"
                         value="{{cartype}}">
                         </mat-form-field>
-                        &nbsp;&nbsp;&nbsp;  
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <mat-form-field>
                     <input
                     matInput
                     placeholder="serviceplan"
                     value="{{serviceplanchosen}}">
                     </mat-form-field>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <mat-form-field appearance="fill">
                     <mat-label>Vehicle Number</mat-label>
                     <input matInput placeholder="Vehicle Number">
                     </mat-form-field>
-                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <mat-form-field appearance="fill">
                     <mat-label>Address</mat-label>
                     <input matInput placeholder="Address">
                     </mat-form-field>
                     <div class="button">
-                        <button (click)="orderplaced()" >PLACE ORDER </button>
+                        <button mat-raised-button color="warn" (click)="orderplaced()" >PLACE ORDER </button>
                     </div>
                 </div>
             </div>

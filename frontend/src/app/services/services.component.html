@@ -1,120 +1,23 @@
-<!--<div>
-    <div>
-                <img src="assets/images/slide2.jpg">
-            <h1>SERVICES</h1>
-            <div>
-                <h2>CAR WASH</h2>
-            </div>
-            <section class="parent">
-                <section class="child">
-            <img src="assets/images/sec1.jpg">
-            <figcaption>WATER WASH</figcaption>
-            <p>₹ 5000</p>
-            <p>Water Wash is an alternative to the regular everyday wash.
-            Application of shampoo, which is not generally used in the regular everyday wash, softens the dirt, making it easy the clean without the formation of scratches of swirl marks. Vacuuming the interiors ensures cleaning of dust and particles even in the corners, which is difficult to clean.
-             Enjoy the experience!</p>
-                <button mat-raised-button color="warn">Choose this service</button>
-            </section>
-            
-            
-<section class="child">
-            <img src="assets/images/sec2.jpg">
-            <figcaption>WATERLESS WASH</figcaption>
-            <p>₹ 4000</p>
-            <p>Waterless wash is done by spraying of ecofriendly solution on the surface of the exterior body of the car, which forms a lubricating layer between the surface and the dirt allowing the dirt to be picked up by the microfibre cloth without formation of scratches on the surface.
-            If the vehicle is too muddy or dirty, we suggest going for the water wash. Enjoy the experience!
-            </p>
-            <button mat-raised-button color="warn">Choose this service</button>
-</section>
-
-<section class="child">
-            <img src="assets/images/sec3.jpg">
-            <figcaption>WASH AND WAX</figcaption>
-            <p>₹ 6000</p>
-            <p>After a clean wash for the car, it is important to protect the surface from fine dust,which causes minor scratches, eventually forming swirl marks.
-            Application of wax on the surface not only gives the car a shiny finish, but also acts as a protective layer, preventing contaminations on the surface. Enjoy the experience!</p>
-            <button mat-raised-button color="warn">Choose this service</button>
-        </section>
-            </section>
-            </div>
-            <br>
-            <br>
-            <div>
-                <h2>INTERIOR DETAILING</h2>
-            
-            <section class="parent">
-            <section class="child">
-                <img src="assets/images/sec5.jpg">
-                <figcaption>INTERIOR CLASSIC</figcaption>
-                <p> 8000</p>
-                <p>This is a deep cleaning procedure for the interiors of the car. All kinds of stains and marks will be removed during this procedure, giving an enriched and new feel to the interiors of the car. Starting with the roof of the car, The dashboard, door pads, seats hand brake gear area, and the floor will be cleaned using a cleaners and brushes ensuring a stain free interior. Enjoy the experience!</p>
-                <button mat-raised-button color="warn">Choose this service</button>
-            </section>
-            <section class="child">
-                <img src="assets/images/sec6.jpg">
-                <figcaption>INTERIOR PREMIUM</figcaption>
-                <p>4000</p>
-                <p>This is a deep cleaning procedure for the interiors of the car. The dashboard, door pads, seats hand brake gear area, and the floor will be cleaned using a cleaners and brushes ensuring a stain free interior. The highlight of this service is the Germclean foam used, which kill all kinds of bacteria, germs and fungi. Sanitization of the interiors make the car protected for children. Enjoy the experience!</p>
-                <button mat-raised-button color="warn">Choose this service</button>
-                </section>
-            <section class="child">
-                <img src="assets/images/sec4.jpg">
-                <figcaption>INTERIOR PREMIUM PLUS</figcaption>
-                <p>7000</p>
-                <p>This is a deep cleaning procedure -->
-
-<!--<div class="container">
-    <thead>
-        <tr>
-            <th>CAR WASH</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let serv of services">
-            <td>{{services}}</td>
-            
-        </tr>
-    </tbody>
-</div>-->
-
-<!--<table>
-    <tr>
-        <td>name</td>
-        <td>type</td>
-        <td>price</td>
-    </tr>
-    <tr *ngFor="let obj of services|keyvalue">
-        <td>{{obj}}</td>
-    </tr>
-</table>-->
-
-<!--<div *ngFor="let service of services|keyvalue;index as i">
-    <p>{{service.key}}</p>
-    <p>{{service.value[i].serviceType}}</p>
-    <p>{{service.value[i].name}}</p>
-    <p>{{service.value[i].description}}</p>
-    <p>{{service.value[i].timeRequired}}</p>
-    <p>{{service.value[i].where}}</p>
-</div>-->
-
-
-<!--<div *ngFor="let i of services" >
-    {{i.price}}
-</div>-->
+<div class="gif">
+    <img src="assets/images/gif2.gif">
+</div>
+<br>
+<br>
 <div>
-    <img src="assets/images/slide2.jpg">
 <div class="text">
     <h1>AVAILABLE SERVICES</h1>
     <div class="container">
         <table>
             <tbody>
-                <tr *ngFor="let service of services">
-                    <td><h2>
+                <tr  class="row"   *ngFor="let service of services">
+                    <td rowspan="2"><h2>
                         {{service.serviceType}}
                     </h2>
                     <button>
                     {{service.name}}
-                <tile>{{service.price}}
+                    <br>
+                <tile>
+                    {{service.price}}
                     <br>
                     {{service.description}}
                     <br>
