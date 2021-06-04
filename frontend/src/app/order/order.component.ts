@@ -27,7 +27,8 @@ orderform:FormGroup;
   cartype:this.cartype,
   serviceplan:this.serviceplanchosen
 }*/
-constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder ) {
+constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder
+ ,private http:HttpClient ) {
   this.orderform=formbuilder.group({
   name:[''],
   email:[''],
@@ -60,6 +61,10 @@ ngOnInit(): void {
   }
   
   orderdata(){
+    this.http.post('',this.orderform.value).subscribe((result)=>{
+      console.log(result);
+      
+    })
     console.log(this.orderform);
     console.log(this.orderform.value);
     alert('order placed successfully');
