@@ -30,7 +30,7 @@ import { CarbrandComponent } from './carbrand/carbrand.component';
 import { OrderComponent } from './order/order.component';
 import { HeadComponent } from './head/head.component';
 import { LoginmemberComponent } from './loginmember/loginmember.component';
-
+import { NgxStripeModule } from 'ngx-stripe'
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -81,7 +81,8 @@ import { IconheaderComponent } from './iconheader/iconheader.component';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    NgxStripeModule.forRoot('pk_test_51Iyk3ESHHhnGOdvyTR2WBQ8MJ56c4QhbRnC3Xyz1buMArCvPp4QTtZfM2LtXLisGY54scWIjiC8cfB3dUiv9BHjt00l8XmE7SC')
   ],
   providers: [],
   bootstrap: [AppComponent]

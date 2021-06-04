@@ -1,0 +1,22 @@
+<h3 class="pb-5">PLEASE DO THE PAYMENT!!</h3>
+<form class="mb-5" novalidate (ngSubmit)="buy()" [formGroup]="stripeForm">
+    <div class="form-Group">
+        <input type="text" class="form-control" formControlName="name" placeholder="Full Name" required>
+        <span class="text-danger" *ngIf="stripeForm.get('name').hasError('required') && submitted">
+            Full Name is required
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="number" class="form-control" formControlName="amount" placeholder="Amount*" required>
+        <span class="text-danger" *ngIf="stripeForm.get('amount').hasError('required') && submitted">
+            Amount is required
+        </span>
+    </div>
+    <div class="form-group">
+        <div id="card-element" class="field"></div>
+    </div>
+    <button class="btn btn-warning w-25 border shadow" type="submit" data-toggle="modal" data-target="#exampleModalCenter">
+    BUY
+    </button>
+
+</form>
