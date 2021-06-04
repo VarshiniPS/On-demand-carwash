@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService} from '../order.service';
 import { ServiceplanService} from '../serviceplan.service';
 import { PersonaldetailService } from '../personaldetail.service';
-import { FormControl,FormGroup } from '@angular/forms';
+import { FormControl,FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-order',
@@ -14,10 +15,30 @@ public formGroup:FormGroup;
 public cartype=''; 
 public serviceplanchosen='';
 public personaldetails:any='';
+orderform:FormGroup;
+/*orderform=new FormGroup({
+  name:new FormControl([this.personaldetails]),
+  email:new FormControl('')
+})
+*/
+/*userdata={
+  name:this.personaldetails.name,
+  emailid:this.personaldetails.email,
+  cartype:this.cartype,
+  serviceplan:this.serviceplanchosen
+}*/
+constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder ) {
+  this.orderform=formbuilder.group({
+  name:[''],
+  email:[''],
+  carType:[''],
+  serviceplan:[''],
+  vehiclenumber:['',Validators.required],
+  address:['',Validators.required]
+});
+}
 
-  constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService ) { }
-
-  ngOnInit(): void {
+ngOnInit(): void {
     this.orderservice.on<any>().subscribe(data=>{
         this.cartype=data;
         //this.serviceplan=data;
@@ -28,18 +49,19 @@ public personaldetails:any='';
       this.personaldetail.on<any>().subscribe(data=>{
         this.personaldetails=data;
       });
-      this.initForm();
-  }
-  initForm(){
-    this.formGroup=new FormGroup({
-      email:new FormControl(this.formGroup),
-      name:new FormControl('')
-    });
+
+      this.orderform.patchValue({
+        name:this.personaldetails.name,
+        email:this.personaldetails.email,
+        carType:this.cartype,
+        serviceplan:this.serviceplanchosen
+      })
+      
   }
   
-
-orderplaced(){
-  alert('order placed');
-console.log(this.formGroup.value);
+  orderdata(){
+    console.log(this.orderform);
+    console.log(this.orderform.value);
+    alert('order placed successfully');
 }
 }

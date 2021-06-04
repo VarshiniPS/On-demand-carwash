@@ -3,9 +3,9 @@ const server4 = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 //const cors = require("cors");
-const dbConfig = require("./config/dbConfig");
+//const dbConfig = require("./config/dbConfig");
 const orderRoutes = require("./services/orderservice");
-const port=Process.env.PORT || 4003
+const port=4003;
 
 /*
 Via Express routes, HTTP request that matches a route will be checked by 
@@ -17,20 +17,16 @@ CORS Middleware before coming to Security layer
 app.use(cors(corsOptions));*/
 
 //Database Connection
-mongoose
-  .connect(
-    `mongodb+srv://root:${dbConfig.PASSWORD}@learnmongodb.tuuzo.mongodb.net/${dbConfig.DBNAME}?retryWrites=true&w=majority`,
-    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-  )
-  .catch((err) => {
-    console.log("Database Connection Error: " + err);
-  });
-let db = mongoose.connection;
+const dbURI='mongodb+srv://varshinips:qwerty170@cluster0.i2q1n.mongodb.net/Order';
+mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true})
+.catch((err)=>{
+    console.log("db connection error:" + err);
+});
 
 //To check Database Connection is open or not
-db.once("open", function () {
+/*db.once("open", function () {
   console.log("Connected to MongoDb Database");
-});
+});*/
 
 server4.use(bodyParser.urlencoded({ extended: false }));
 

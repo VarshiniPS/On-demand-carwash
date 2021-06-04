@@ -2,15 +2,14 @@ const Order = require("../model/orderModel");
 
 //TO place an Order
 exports.addOrder = (req, res) => {
-  const order = new Order({
-    customerId: req.body.customerId,
+    const order = new Order({
     customerName: req.body.customerName,
-    carName: req.body.carName,
-    carNumber: req.body.carNumber,
-    custAddress: req.body.custAddress,
-    serviceName: req.body.serviceName,
-    servicePrice: req.body.servicePrice,
-  });
+    customeremailid:req.body.customeremailid,
+    cartype: req.body.cartype,
+    servicePlan: req.body.servicePlan,
+    VehicleNumber:req.body.VehicleNumber,
+    Customeraddress:req.body.Customeraddress
+  })
   order
     .save()
     .then((result) => {

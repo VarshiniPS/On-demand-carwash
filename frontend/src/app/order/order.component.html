@@ -1,58 +1,41 @@
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<div class="section">
-        <div class="container">
-            <div class="content-section">
-                <div class="title">
-                <h1>ORDER SUMMARRY</h1>
-                </div>
-                <div class="content">
-                    <form  [formGroup]="formGroup" (ngSubmit)="orderplaced()">
-                    <mat-form-field>
-                        <input
-                        matInput
-                        placeholder="name"
-                        value="{{personaldetails.name}}">
-                        </mat-form-field>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                        <mat-form-field>
-                            <input
-                            matInput
-                            placeholder="Email id"
-                            
-                            value="{{personaldetails.email}}">
-                        </mat-form-field>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <mat-form-field>
-                        <input
-                        matInput
-                        placeholder="cartype"
-                        
-                        value="{{cartype}}">
-                        </mat-form-field>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <mat-form-field>
-                    <input
-                    matInput
-                    placeholder="serviceplan"
-                    
-                    value="{{serviceplanchosen}}">
-                    </mat-form-field>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <mat-form-field appearance="fill">
-                    <mat-label>Vehicle Number</mat-label>
-                    <input matInput placeholder="Vehicle Number">
-                    </mat-form-field>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <mat-form-field appearance="fill">
-                    <mat-label>Address</mat-label>
-                    <input matInput placeholder="Address">
-                    </mat-form-field>
-                    <div class="button">
-                        <button mat-raised-button color="warn" (click)="orderplaced()" >PLACE ORDER </button>
-                    </div>
-                </form>
-                </div>
-            </div>
-        </div>
+<div class="container">
+    <h4 class="pb-2">Check Out form</h4>
+<form  [formGroup]="orderform" (ngSubmit)="orderdata()"  >
+    <div class="form-group">
+    <label >Name:</label>
+    <input type="text" class="form-control" id="name" formControlName="name" readonly >
+    <br>
+    <br>
+    </div>
+    <div class="form-group">
+    <label >Email id:</label>
+    <input type="email" class="form-control" id="email" formControlName="email" readonly >
+    <br>
+    <br>
+    </div>
+    <div class="form-group">
+        <label >Car Type:</label>
+        <input type="text" class="form-control" id="cartype" formControlName= "carType" readonly>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+        <label >Service Plan:</label>
+        <input type="text" class="form-control" id="serviceplan" formControlName="serviceplan" readonly>
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+        <label >Vehicle Number:</label>
+        <input class= "form-control ng-pristine ng-invalid ng-touched" type="text" class="form-control" id="vehicle number" formControlName="vehiclenumber" >
+    </div>
+    <br>
+    <br>
+    <div class="form-group">
+        <label >Address:</label>
+        <input type="text" class="form-control" id="address" formControlName="address" >
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!orderform.valid">Place Order</button>
+    </form>
     </div>
     
