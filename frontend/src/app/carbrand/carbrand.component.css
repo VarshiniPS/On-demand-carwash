@@ -1,15 +1,31 @@
 .container {
-    height:70%;
+    height:65%;
     width: 100%;
     text-align: center;
+    background-attachment: fixed;
 } 
 
-.text{
-    color:white;
+h1{
+    color: #323232;
+    font-size: 48px;
+    font-family: 'Courier New', Courier, monospace;
+    padding-bottom: 10px;
+    font-weight: inherit;
     text-align: center;
-    font-size: 106px;
-    display:block;
-    font-weight: 900;
-    background-color:black;
+    border-radius: 40px;
+    text-decoration: underline;
+
 }
 
+.navitem{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    border: black;
+    padding:10px 70px 10px 90px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bolder;
+    
+}

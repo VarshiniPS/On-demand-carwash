@@ -1,10 +1,14 @@
 <div class="container">
     <img src="assets/images/gif2.gif" >
 </div>
-<div class="text">
+<div>
 <h1>AVAILABLE CARS</h1>
-<div *ngFor="let car of Cars">
-  <input class="button" type="button" value="{{car}}" (click)="buttonChangeHandler($event)" mat-raised-button color="warn">
+<div class="navitem" *ngFor="let car of Cars">
+  <input type="button" value="{{car}}" (click)="buttonChangeHandler($event)" mat-raised-button color="warn">
 </div>
-
+<br>
+<br>
+<div>
+<app-footer></app-footer>
+</div>
 
