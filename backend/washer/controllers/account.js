@@ -1,56 +1,57 @@
-const washer=require('../models/washermodel');
+const User=require('../models/washermodel');
 const jwt=require('jsonwebtoken');
 const bcrypt=require('bcrypt');
 const mongoose=require('mongoose');
-const authConfig=require('../Config/authConfig');
 
-
-exports.login=(req,res,next)=>{
-    washer.findOne({
-        email:req.body.email
-    })
-    .exec()
-    .then(user=>{
-        if(!user){
-            return res.status(401).json({
-                message:"auth failed"
-            });
-        }else{
-            bcrypt.compare(req.body.password,user.password,(err,response)=>{
-                if(err){
-                    return res.status(401).json({
-                        message:"auth failed"
-                    });
-                }else if (response){
-                    const token=jwt.sign({
-                        userId:user._id
-                    },
-                    authConfig.secretKey,
-                    {
-                        expiresIn:"1h"
-                    });
-                    return res.status(200).json({
-                        message:"auth successful",
-                        userId:user._id,
-                        name:user.name,
-                        email:user.email,
-                        token:token
-                    });
-                }else{
-                    return res.status(401).json({
-                        message:"auth failed"
-                    });
+exports.login = (req, res, next) => {
+    User.findOne({ email: req.body.email })
+      .exec()
+      .then((user) => {
+        if (!user) {
+          return res.status(401).json({
+            message: "Authentication Failed",
+          });
+        } else {
+          bcrypt.compare(req.body.password, user.password, (err, response) => {
+            if (err) {
+              return res.status(401).json({
+                message: "Authentication Failed",
+              });
+            } else if (response) {
+              const token = jwt.sign(
+                {
+                  userId: user._id,
+                },
+                authConfig.secretKey,
+                {
+                  expiresIn: "1h",
                 }
-            });
+              );
+              return res.status(200).json({
+                message: "Authentication Successful",
+                userId: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                token: token,
+              });
+            } else {
+              return res.status(401).json({
+                message: "Authentication Failed",
+              });
+            }
+          });
         }
-    })
-    .catch(err=>{
-        console.log(err);
+      })
+      .catch((err) => {
+        console.log("Login Error: " + err);
         res.status(500).json({
-            error:err
-        })
-    })
-}
+          Login_Error: err,
+        });
+      });
+  };
+  
+
 
 
 exports.signup=(req,res,next)=>{
@@ -60,7 +61,7 @@ exports.signup=(req,res,next)=>{
         })
     }
 
-  washer.find({email:req.body.email})
+  User.find({email:req.body.email})
         .exec()
         .then(user=>{
         if(user.length>=1){

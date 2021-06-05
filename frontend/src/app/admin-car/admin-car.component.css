@@ -11,7 +11,7 @@ h1{
 table {
     width:70%;
     border: 4px;
-    margin-left: 250px;
+    margin-left: 0px;
     align-content: center;
     table-layout: fixed;
   }
@@ -35,7 +35,7 @@ table {
   }
   .border{
     padding: 10px;
-    margin-left: 250px;
+    margin-left: 0px;
     margin-right: 40px;
   }
   .btn{

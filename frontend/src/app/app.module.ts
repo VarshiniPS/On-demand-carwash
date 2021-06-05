@@ -41,6 +41,9 @@ import { IconheaderComponent } from './iconheader/iconheader.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminWasherComponent } from './admin-washer/admin-washer.component';
 import { AdminServicesComponent } from './admin-services/admin-services.component';
+import { AdminCarComponent } from './admin-car/admin-car.component';
+import { CustomerLogoutComponent } from './customer-logout/customer-logout.component';
+import { WasherOrderComponent } from './washer-order/washer-order.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,10 @@ import { AdminServicesComponent } from './admin-services/admin-services.componen
     IconheaderComponent,
     AdminOrdersComponent,
     AdminWasherComponent,
-    AdminServicesComponent
+    AdminServicesComponent,
+    AdminCarComponent,
+    CustomerLogoutComponent,
+    WasherOrderComponent
   ],
   imports: [
     BrowserModule,

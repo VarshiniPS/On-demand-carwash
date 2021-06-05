@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { baseUrl,wUrl,url } from 'src/environments/environment';
-
+import { baseUrl,url } from 'src/environments/environment';
+import { wUrl} from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,7 @@ export class AuthServiceService {
     return this.http.post(`${url}auth/login`,data);
   }
 
-  washerlogin(data: any):Observable<any>{
-    
+  washerlogin(data):Observable<any>{
     return this.http.post(`${wUrl}account/login`,data);
   }
   

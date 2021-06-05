@@ -1,1 +1,35 @@
-<p>admin-washer works!</p>
+<br>
+<br>
+<h1 align="center">Orders</h1>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Sl.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Role</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let washer of washers; let i=index">
+                <td><span>{{i+1}}</span></td>
+                <td><span>{{washer.name}}</span></td>
+                <td><span>{{washer.email}}</span></td>
+                <td><span>{{washer.mobile}}</span></td>
+                <td><span>{{washer.role}}</span></td>
+                <td><span>{{washer.status}}</span></td>
+                <td>
+                    <button class="btn btn-sm btn-info">
+                      <i class="fa fa-search"></i>Details</button>
+                    <button class="btn btn-sm btn-warning">
+                      <i class="fa fa-edit"></i>Edit</button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fa fa-remove"></i>Delete</button>
+                  </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

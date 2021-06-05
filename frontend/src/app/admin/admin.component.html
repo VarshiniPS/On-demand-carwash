@@ -3,10 +3,16 @@
     <app-admin-orders></app-admin-orders>   
     </mat-tab>
     <mat-tab label="WASHER" >
-     <app-admin-washer></app-admin-washer>    
+     <app-admin-washer></app-admin-washer>
+     <app-footer></app-footer>    
+    </mat-tab>
+    <mat-tab label="CARTYPE" >
+        <app-admin-car></app-admin-car>
+        <app-footer></app-footer>    
     </mat-tab>
     <mat-tab label="Services" >
-         
+      <app-admin-services></app-admin-services>
+      <app-footer></app-footer>   
     </mat-tab>
     
     <mat-tab label="LOGOUT" >
@@ -16,9 +22,9 @@
         <h3>ADIOS,Admin!!</h3>
         <strong><h3>Do yo want to LOGOUT?</h3></strong>
         <button mat-raised-button color="warn" (click)="gotohome('')">LOGOUT</button><br><br>
-        <h2>YOU HAVE SUCCESSFULLY LOGGED OUT!!</h2><br>
         <h2>THANK YOU!!!</h2>
     </div>
+    <app-footer></app-footer>
     </mat-tab>
     
     </mat-tab-group>
