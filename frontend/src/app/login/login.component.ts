@@ -39,9 +39,9 @@ loginProcess(){
   this.personaldetail.emit<any>(this.formGroup.value);
 }
 
-/*gotomember(pageName:string):void{
+gotomember(pageName:string):void{
   this.router.navigate([`${pageName}`])
-}*/
+}
 
 
 }

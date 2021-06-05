@@ -8,7 +8,18 @@ export class CheckoutService {
   url='http://localhost:4005/order/addorder';
   constructor(private http:HttpClient) { }
 
-  placeorder(checkoutdata){
+  placeorder(checkoutdata:CheckoutData){
   return this.http.post<any>(this.url,checkoutdata)
   }
 }
+
+export interface CheckoutData{
+  name:any,
+  email:any,
+  cartype:any,
+  serviceplan:any,
+  vehiclenumber:any,
+  address:any
+
+}
+

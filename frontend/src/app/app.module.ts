@@ -38,6 +38,9 @@ import { AdminComponent } from './admin/admin.component';
 import { WasherComponent } from './washer/washer.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { IconheaderComponent } from './iconheader/iconheader.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { AdminWasherComponent } from './admin-washer/admin-washer.component';
+import { AdminServicesComponent } from './admin-services/admin-services.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,10 @@ import { IconheaderComponent } from './iconheader/iconheader.component';
 
     AdminComponent,
     WasherComponent,
-    IconheaderComponent
+    IconheaderComponent,
+    AdminOrdersComponent,
+    AdminWasherComponent,
+    AdminServicesComponent
   ],
   imports: [
     BrowserModule,

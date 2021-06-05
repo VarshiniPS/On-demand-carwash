@@ -3,12 +3,12 @@ const Ordermodel = require("../model/orderModel");
 //TO place an Order
 exports.addorder = (req, res) => {
           const order=new Ordermodel({
-              customerName:req.body.customerName,
-              customeremailid:req.body.customeremailid,
-              cartype:req.body.cartype,
-              servicePlan:req.body.servicePlan,
-              VehicleNumber:req.body.VehicleNumber,
-              Customeraddress:req.body.Customeraddress,
+              name:req.body.name,
+              email:req.body.email,
+              carType:req.body.carType,
+              serviceplan:req.body.serviceplan,
+              vehicleNumber:req.body.vehiclenumber,
+              address:req.body.address,
               requestedOn:req.body.requestedOn,
               deliveredOn:req.body.deliveredOn,
               status:req.body.status
@@ -20,12 +20,12 @@ exports.addorder = (req, res) => {
                       message:"placed order successfully",
                       order:{
                           _id:response._id,
-                          customername:response.customerName,
-                          customeremailid:response.customeremailid,
-                          cartype:response.cartype,
-                          servicePlan:response.servicePlan,
-                          VehicleNumber:response.VehicleNumber,
-                          Customeraddress:response.Customeraddress,
+                          name:response.name,
+                          email:response.email,
+                          carType:response.carType,
+                          serviceplan:response.serviceplan,
+                          vehiclenumber:response.vehiclenumber,
+                          address:response.address,
                           requestedOn:response.requestedOn,
                           deliveredOn:response.deliveredOn,
                           status:response.status

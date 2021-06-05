@@ -53,12 +53,16 @@
                   class="login-button">
                   Sign In
                 </button>
-                <div class="member">
-          <button>login as member </button></div>
+          <div class="member">
+          <button (click)="gotomember('member')" >login as member </button>
+          </div>
             </form>
             </mat-card-content>
         </mat-tab>
-        <mat-tab label="Sign Up">
+
+
+
+<mat-tab label="Sign Up">
           <mat-card-content>
             <form action="">
               <mat-form-field>
