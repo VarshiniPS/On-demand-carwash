@@ -8,7 +8,7 @@ const orderSchema = mongoose.Schema({
   VehicleNumber:{type:String},
   Customeraddress:{type:String},
   requestedOn: { type: Date, default: Date.now() },
-  deliveredOn: { type: Date },
+  deliveredOn: { type: Date, default:Date.now() },
   status: {
     type: String,
     default: "PLACED",

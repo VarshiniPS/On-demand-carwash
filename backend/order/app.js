@@ -5,16 +5,7 @@ const mongoose = require("mongoose");
 //const cors = require("cors");
 //const dbConfig = require("./config/dbConfig");
 const orderRoutes = require("./services/orderservice");
-const port=4003;
-
-/*
-Via Express routes, HTTP request that matches a route will be checked by 
-CORS Middleware before coming to Security layer
-*/
-/*var corsOptions = {
-  origin: "http://localhost:3000",
-};
-app.use(cors(corsOptions));*/
+const port = process.env.PORT || 4005;
 
 //Database Connection
 const dbURI='mongodb+srv://varshinips:qwerty170@cluster0.i2q1n.mongodb.net/Order';
@@ -23,10 +14,6 @@ mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIn
     console.log("db connection error:" + err);
 });
 
-//To check Database Connection is open or not
-/*db.once("open", function () {
-  console.log("Connected to MongoDb Database");
-});*/
 
 server4.use(bodyParser.urlencoded({ extended: false }));
 
@@ -65,7 +52,7 @@ server4.use((error, req, res, next) => {
   });
 });
 
-server4.listen(()=>{
+server4.listen(port,()=>{
     console.log(`server 4 running on ${port}`);
 })
 

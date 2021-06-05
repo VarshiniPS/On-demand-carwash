@@ -4,6 +4,7 @@ import { ServiceplanService} from '../serviceplan.service';
 import { PersonaldetailService } from '../personaldetail.service';
 import { FormControl,FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
+import { CheckoutService } from '../checkout.service';
 
 @Component({
   selector: 'app-order',
@@ -11,7 +12,7 @@ import { HttpClient} from '@angular/common/http';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-public formGroup:FormGroup;
+//public formGroup:FormGroup;
 public cartype=''; 
 public serviceplanchosen='';
 public personaldetails:any='';
@@ -28,7 +29,7 @@ orderform:FormGroup;
   serviceplan:this.serviceplanchosen
 }*/
 constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder
- ,private http:HttpClient ) {
+ ,private http:HttpClient,private checkoutservice:CheckoutService ) {
   this.orderform=formbuilder.group({
   name:[''],
   email:[''],
@@ -61,12 +62,14 @@ ngOnInit(): void {
   }
   
   orderdata(){
-    this.http.post('',this.orderform.value).subscribe((result)=>{
-      console.log(result);
-      
-    })
-    console.log(this.orderform);
     console.log(this.orderform.value);
-    alert('order placed successfully');
+    this.checkoutservice.placeorder(this.orderform.value)
+    .subscribe(
+      response=>console.log('success',response)
+    );
+    alert('order placed');
 }
+    
 }
+
+

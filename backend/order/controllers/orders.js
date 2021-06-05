@@ -1,31 +1,47 @@
-const Order = require("../model/orderModel");
+const Ordermodel = require("../model/orderModel");
 
 //TO place an Order
-exports.addOrder = (req, res) => {
-    const order = new Order({
-    customerName: req.body.customerName,
-    customeremailid:req.body.customeremailid,
-    cartype: req.body.cartype,
-    servicePlan: req.body.servicePlan,
-    VehicleNumber:req.body.VehicleNumber,
-    Customeraddress:req.body.Customeraddress
-  })
-  order
-    .save()
-    .then((result) => {
-      console.log("Order Placed: " + result);
-      res.status(201).json({
-        message: "Thank you for your order.",
-        result,
-      });
-    })
-    .catch((err) => {
-      console.log("Placing Order Error" + err);
+exports.addorder = (req, res) => {
+          const order=new Ordermodel({
+              customerName:req.body.customerName,
+              customeremailid:req.body.customeremailid,
+              cartype:req.body.cartype,
+              servicePlan:req.body.servicePlan,
+              VehicleNumber:req.body.VehicleNumber,
+              Customeraddress:req.body.Customeraddress,
+              requestedOn:req.body.requestedOn,
+              deliveredOn:req.body.deliveredOn,
+              status:req.body.status
+              });
+          order.save()
+              .then(response=>{
+                  console.log("placed order");
+                  res.status(201).json({
+                      message:"placed order successfully",
+                      order:{
+                          _id:response._id,
+                          customername:response.customerName,
+                          customeremailid:response.customeremailid,
+                          cartype:response.cartype,
+                          servicePlan:response.servicePlan,
+                          VehicleNumber:response.VehicleNumber,
+                          Customeraddress:response.Customeraddress,
+                          requestedOn:response.requestedOn,
+                          deliveredOn:response.deliveredOn,
+                          status:response.status
+
+                      }
+                  });
+              })
+  .catch((err)=>{
+      console.log(err);
       res.status(500).json({
-        error: err,
+          error:err
       });
-    });
-};
+  });
+}
+
+
 
 //Find Completed Orders
 exports.findCompltedOrders = (req, res) => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder,Validators} from '@angular/forms';
-import { StripeService,Elements,Element as StripeElement,ElementsOptions } from 'ngx-stripe';
-import { DataService } from '../services/data.service';
+//import { FormGroup,FormBuilder,Validators} from '@angular/forms';
+
+//import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-payment',
@@ -9,7 +9,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-elements:Elements;
+/*elements:Elements;
 card:StripeElement;
 paymentStatus:any;
 stripeData:any;
@@ -20,12 +20,14 @@ elementsOptions:ElementsOptions={
   locale:'en'
 };
 
-stripeForm:FormGroup;
+stripeForm:FormGroup;*/
 
-  constructor(private fb:FormBuilder,private stripeService:StripeService,private dataService:DataService) { }
+  constructor(
+    //private fb:FormBuilder,private stripeService:StripeService
+    ) { }
 
   ngOnInit(){
-    this.loading=false;
+    /*this.loading=false;
     this.createForm();
     this.stripeService.elements(this.elementsOptions).subscribe(elements=>{
       this.elements=elements;
@@ -62,11 +64,11 @@ stripeForm:FormGroup;
     this.loading=true;
     this.stripeData=this.stripeForm.value
     this.stripeService
-        .createToken(this.card, { name })
+        //.createToken(this.card, { name })
         .subscribe(result=>{
           if(result.token){
             this.stripeData['token']=result.token
-            this.dataService.stripePayment(this.stripeData).subscribe((res)=>{
+            //this.dataService.stripePayment(this.stripeData).subscribe((res)=>{
               if(res['sucess']){
                 this.loading=false;
                 this.submitted=false;
@@ -79,6 +81,7 @@ stripeForm:FormGroup;
           }
           
         });
-  }
+  }*/
 
+}
 }

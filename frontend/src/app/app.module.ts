@@ -21,7 +21,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ServicesComponent } from './services/services.component';
-import { OwlModule } from 'ngx-owl-carousel';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactusComponent } from './contactus/contactus.component';
 import { CarmodelComponent } from './carmodel/carmodel.component';
@@ -30,7 +30,7 @@ import { CarbrandComponent } from './carbrand/carbrand.component';
 import { OrderComponent } from './order/order.component';
 import { HeadComponent } from './head/head.component';
 import { LoginmemberComponent } from './loginmember/loginmember.component';
-import { NgxStripeModule } from 'ngx-stripe'
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -76,13 +76,12 @@ import { IconheaderComponent } from './iconheader/iconheader.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    OwlModule,
     NgbModule,
     LayoutModule,
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    NgxStripeModule.forRoot('pk_test_51Iyk3ESHHhnGOdvyTR2WBQ8MJ56c4QhbRnC3Xyz1buMArCvPp4QTtZfM2LtXLisGY54scWIjiC8cfB3dUiv9BHjt00l8XmE7SC')
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
