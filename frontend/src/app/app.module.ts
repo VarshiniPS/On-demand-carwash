@@ -21,7 +21,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ServicesComponent } from './services/services.component';
-
+import { CheckoutService } from './checkout.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactusComponent } from './contactus/contactus.component';
 import { CarmodelComponent } from './carmodel/carmodel.component';
@@ -83,7 +83,7 @@ import { IconheaderComponent } from './iconheader/iconheader.component';
     MatGridListModule,
     
   ],
-  providers: [],
+  providers: [CheckoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

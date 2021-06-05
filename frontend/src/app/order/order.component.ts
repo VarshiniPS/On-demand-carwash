@@ -5,6 +5,7 @@ import { PersonaldetailService } from '../personaldetail.service';
 import { FormControl,FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
 import { CheckoutService } from '../checkout.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -29,7 +30,7 @@ orderform:FormGroup;
   serviceplan:this.serviceplanchosen
 }*/
 constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder
- ,private http:HttpClient,private checkoutservice:CheckoutService ) {
+ ,private http:HttpClient,private checkoutservice:CheckoutService,private router:Router ) {
   this.orderform=formbuilder.group({
   name:[''],
   email:[''],
@@ -68,6 +69,7 @@ ngOnInit(): void {
       response=>console.log('success',response)
     );
     alert('order placed');
+    this.router.navigate(['head'])
 }
     
 }
