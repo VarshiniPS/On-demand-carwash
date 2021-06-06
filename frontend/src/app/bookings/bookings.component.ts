@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MybookingsService } from '../mybookings.service';
 
@@ -9,14 +9,15 @@ import { MybookingsService } from '../mybookings.service';
 })
 export class BookingsComponent implements OnInit {
 
-  order:any='';
+  bookings:any='';
   constructor(private http: HttpClient,private booking:MybookingsService) { }
 
   ngOnInit(): void {
     this.booking.on<any>().subscribe(data=>{
-      this.order=data;
+      this.bookings=data;
     })
 }
+
 
 }
   

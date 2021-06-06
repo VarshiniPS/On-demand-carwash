@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
 import { Router} from '@angular/router';
 import  { PersonaldetailService } from '../personaldetail.service';
+import { CustomersignupService } from '../customersignup.service';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +12,14 @@ import  { PersonaldetailService } from '../personaldetail.service';
 })
 export class LoginComponent implements OnInit {
   formGroup:FormGroup;
-  constructor(private authservice:AuthServiceService,private router:Router,private personaldetail:PersonaldetailService) {}
+  
+  constructor(private authservice:AuthServiceService,private router:Router,private personaldetail:PersonaldetailService
+   ,private customersignup:CustomersignupService ) {}
 
   ngOnInit(){
     this.initForm();
   }
-initForm(){
+  initForm(){
   this.formGroup=new FormGroup({
     email:new FormControl('',[Validators.required]),
     password:new FormControl('',[Validators.required]),
@@ -43,8 +46,19 @@ gotomember(pageName:string):void{
   this.router.navigate([`${pageName}`])
 }
 
-
+signup(){
+    console.log(this.formGroup.value);
+    this.customersignup.custsignup(this.formGroup.value)
+    .subscribe(
+      response=>console.log('success',response)
+    );
+    alert('registration successful');
+    this.router.navigate([''])
 }
+}
+
+
+
 
 
 

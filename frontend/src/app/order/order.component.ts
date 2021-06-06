@@ -14,11 +14,12 @@ import { MybookingsService } from '../mybookings.service';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-//public formGroup:FormGroup;
+orderform:FormGroup;
 public cartype=''; 
 public serviceplanchosen='';
 public personaldetails:any='';
-orderform:FormGroup;
+
+
 
 
 
@@ -61,8 +62,8 @@ ngOnInit(): void {
     .subscribe(
       response=>console.log('success',response)
     );
-    alert('order placed');
     this.booking.emit<any>(this.orderform.value);
+    alert('order placed');
     this.router.navigate(['head'])
 }
 

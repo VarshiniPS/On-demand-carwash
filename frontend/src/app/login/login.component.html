@@ -60,11 +60,9 @@
             </mat-card-content>
         </mat-tab>
 
-
-
 <mat-tab label="Sign Up">
           <mat-card-content>
-            <form action="">
+            <form [formGroup]="formGroup" (ngSubmit)="signup()" >
               <mat-form-field>
                 <input
                   matInput
@@ -74,13 +72,8 @@
                   ngModel
                   #username="ngModel">
                 <mat-icon matSuffix>perm_identity</mat-icon>
-                <mat-error
-                  *ngIf="username.invalid">
-                  Username is required
-                </mat-error>
-  
               </mat-form-field>
-              <mat-form-field>
+              <mat-form-field> 
                 <input
                   matInput
                   placeholder="Email"
@@ -88,7 +81,6 @@
                   name="email"
                   ngModel
                   #email="ngModel">
-                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
                 <mat-icon matSuffix>email</mat-icon>
               </mat-form-field>
               <mat-form-field>
@@ -101,19 +93,10 @@
                   name="password"
                   ngModel
                   #password="ngModel">
-                  <mat-error
-                    *ngIf="password.errors && password.errors.required">
-                    Password is required
-                  </mat-error>
-                  <mat-error
-                    *ngIf="password.errors && password.errors.minlength">
-                    Password must be of length 6
-                  </mat-error>
                 <mat-icon matSuffix>lock</mat-icon>
-  
               </mat-form-field>
               <mat-form-field>
-                  <input
+              <input
                   matInput
                   placeholder="Password"
                   type="password"
@@ -128,18 +111,18 @@
                   </mat-error>
                 <mat-icon matSuffix>lock</mat-icon>
               </mat-form-field>
-              <button
+                <button
                 mat-raised-button
                 color="primary"
                 class="login-button">
                 Sign Up
               </button>
-              <div class="member">
-                <button >SignUp as member </button></div>
             </form>
           </mat-card-content>
-        </mat-tab>
-      </mat-tab-group>
-    </mat-card>
-  </div>
+</mat-tab>
+          
+        
+    
+  
+  
   

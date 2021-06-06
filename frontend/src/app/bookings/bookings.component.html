@@ -11,13 +11,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let order of order; let i=index">
+            <tr *ngFor="let bookings of bookings; let i=index">
                 <td><span>{{i+1}}</span></td>
-                <td><span>{{order.name}}</span></td>
-                <td><span>{{order.email}}</span></td>
-                <td><span>{{order.carType}}</span></td>
-                <td><span>{{order.serviceplan}}</span></td>
-                <td><span>{{order.address}}</span></td>
+                <td><span>{{bookings.name}}</span></td>
+                <td><span>{{bookings.email}}</span></td>
+                <td><span>{{bookings.carType}}</span></td>
+                <td><span>{{bookings.serviceplan}}</span></td>
+                <td><span>{{bookings.address}}</span></td>
                 
             </tr>
         </tbody>
