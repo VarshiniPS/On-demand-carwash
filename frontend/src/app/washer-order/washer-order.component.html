@@ -1,1 +1,41 @@
-<p>washer-order works!</p>
+<h1 align="center">ORDERS</h1>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Sl.no</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>CarType</th>
+                <th>Serviceplan</th>
+                <th>Address</th>
+                <th>Requested On</th>
+                <th>Delivered On</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders; let i=index">
+                <td><span>{{i+1}}</span></td>
+                <td><span>{{order.name}}</span></td>
+                <td><span>{{order.email}}</span></td>
+                <td><span>{{order.carType}}</span></td>
+                <td><span>{{order.serviceplan}}</span></td>
+                <td><span>{{order.address}}</span></td>
+                <td><span>{{order.requestedOn}}</span></td>
+                <td><span>{{order.deliveredOn}}</span></td>
+                <td><span>{{order.status}}</span></td>
+                <td>
+                    <select id="Action">
+                        <option value="Accepted">Accepted</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                  </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

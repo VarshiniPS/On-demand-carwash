@@ -6,6 +6,7 @@ import { FormControl,FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
 import { CheckoutService } from '../checkout.service';
 import { Router } from '@angular/router';
+import { MybookingsService } from '../mybookings.service';
 
 @Component({
   selector: 'app-order',
@@ -18,19 +19,11 @@ public cartype='';
 public serviceplanchosen='';
 public personaldetails:any='';
 orderform:FormGroup;
-/*orderform=new FormGroup({
-  name:new FormControl([this.personaldetails]),
-  email:new FormControl('')
-})
-*/
-/*userdata={
-  name:this.personaldetails.name,
-  emailid:this.personaldetails.email,
-  cartype:this.cartype,
-  serviceplan:this.serviceplanchosen
-}*/
+
+
+
 constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder
- ,private http:HttpClient,private checkoutservice:CheckoutService,private router:Router ) {
+ ,private http:HttpClient,private checkoutservice:CheckoutService,private router:Router,private booking:MybookingsService ) {
   this.orderform=formbuilder.group({
   name:[''],
   email:[''],
@@ -69,8 +62,11 @@ ngOnInit(): void {
       response=>console.log('success',response)
     );
     alert('order placed');
+    this.booking.emit<any>(this.orderform.value);
     this.router.navigate(['head'])
 }
+
+
     
 }
 

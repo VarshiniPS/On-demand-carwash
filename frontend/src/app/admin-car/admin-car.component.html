@@ -3,7 +3,7 @@
 <h1 align="center">Cars Avaliable</h1>
 <div class="container">
     <div class="border">
-        <button class="btn btn-md btn-outline-primary" >
+        <button class="btn btn-md btn-outline-primary" (click)="open(content)">
           <i id="myicon" class="fa fa-user"></i>New Car</button>
     </div>
     <table class="table table-bordered table-striped">
@@ -18,6 +18,8 @@
                 <td><span>{{i+1}}</span></td>
                 <td><span>{{car}}</span></td>
                 <td>
+                    <button class="btn btn-sm btn-info">
+                      <i class="fa fa-search"></i>Details</button>
                     <button class="btn btn-sm btn-warning">
                       <i class="fa fa-edit"></i>Edit</button>
                     <button class="btn btn-sm btn-danger">
@@ -27,3 +29,31 @@
         </tbody>
     </table>
 </div>
+
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Car</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form  #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="form-group">
+          <label for="car">Car name</label>
+          <div class="input-group">
+            <input id="car" name="car" class="form-control" ngModel>
+          </div>
+        </div>
+        <div>
+            <div class="border text-center">
+                <button data-dismiss="modal" class="btn btn-info">Submit</button>
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-customer-logout',
+  selector: '',
   templateUrl: './customer-logout.component.html',
   styleUrls: ['./customer-logout.component.css']
 })

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent} from './homepage/homepage.component';
-import { CarmodelComponent } from './carmodel/carmodel.component';
 import { ServicesComponent } from './services/services.component';
 import { HeaderComponent } from './header/header.component'
 import { CarbrandComponent} from './carbrand/carbrand.component'

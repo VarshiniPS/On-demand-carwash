@@ -1,33 +1,24 @@
-<h1 align="center">ORDERS</h1>
-
 <div class="container">
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Sl.no</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>CarType</th>
                 <th>Serviceplan</th>
-                <th>Vehicle Number</th>
                 <th>Address</th>
-                <th>Requested On</th>
-                <th>Delivered On</th>
-                <th>Status</th>
+
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let order of orders; let i=index">
+            <tr *ngFor="let order of order; let i=index">
                 <td><span>{{i+1}}</span></td>
                 <td><span>{{order.name}}</span></td>
                 <td><span>{{order.email}}</span></td>
                 <td><span>{{order.carType}}</span></td>
                 <td><span>{{order.serviceplan}}</span></td>
-                <td><span>{{order.vehiclenumber}}</span></td>
                 <td><span>{{order.address}}</span></td>
-                <td><span>{{order.requestedOn}}</span></td>
-                <td><span>{{order.deliveredOn}}</span></td>
-                <td><span>{{order.status}}</span></td>
+                
             </tr>
         </tbody>
     </table>

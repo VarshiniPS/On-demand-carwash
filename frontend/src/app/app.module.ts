@@ -24,13 +24,11 @@ import { ServicesComponent } from './services/services.component';
 import { CheckoutService } from './checkout.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactusComponent } from './contactus/contactus.component';
-import { CarmodelComponent } from './carmodel/carmodel.component';
 import { SeriesComponent } from './series/series.component';
 import { CarbrandComponent } from './carbrand/carbrand.component';
 import { OrderComponent } from './order/order.component';
 import { HeadComponent } from './head/head.component';
 import { LoginmemberComponent } from './loginmember/loginmember.component';
-
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -44,6 +42,7 @@ import { AdminServicesComponent } from './admin-services/admin-services.componen
 import { AdminCarComponent } from './admin-car/admin-car.component';
 import { CustomerLogoutComponent } from './customer-logout/customer-logout.component';
 import { WasherOrderComponent } from './washer-order/washer-order.component';
+import { BookingsComponent } from './bookings/bookings.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +54,7 @@ import { WasherOrderComponent } from './washer-order/washer-order.component';
     HeaderComponent,
     ServicesComponent,
     ContactusComponent,
-    CarmodelComponent,
+  
     SeriesComponent,
     CarbrandComponent,
     OrderComponent,
@@ -70,7 +69,8 @@ import { WasherOrderComponent } from './washer-order/washer-order.component';
     AdminServicesComponent,
     AdminCarComponent,
     CustomerLogoutComponent,
-    WasherOrderComponent
+    WasherOrderComponent,
+    BookingsComponent
   ],
   imports: [
     BrowserModule,

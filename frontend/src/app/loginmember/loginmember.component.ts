@@ -28,6 +28,10 @@ export class LoginmemberComponent implements OnInit {
           console.log(result);
           alert(result.message);
           this.router.navigate(['adash']);
+          }else if(result.role=="WASHER"){
+          console.log(result);
+          alert(result.message);
+          this.router.navigate(['washer']);
           }else{
             alert(result.message);
           }
@@ -35,7 +39,7 @@ export class LoginmemberComponent implements OnInit {
     }
   }
 
-  washerlogin(){
+/*  washerlogin(){
     if(this.formGroup.valid){
       this.authService.washerlogin(this.formGroup.value).subscribe(result=>{
         if(result.role=="WASHER"){
@@ -47,5 +51,5 @@ export class LoginmemberComponent implements OnInit {
           }
       });
     }
-  }
+  }*/
 }

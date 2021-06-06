@@ -2,7 +2,7 @@ const Order = require("../models/ordermodel");
 
 //Find My Orders
 exports.findMyOrders = (req, res) => {
-  Order.find({ customerId: req.params.customerId })
+  Order.find({ email: req.params.email})
     .exec()
     .then((response) => {
       if (response.length == 0) {

@@ -20,6 +20,5 @@ export interface CheckoutData{
   serviceplan:any,
   vehiclenumber:any,
   address:any
-
 }
 

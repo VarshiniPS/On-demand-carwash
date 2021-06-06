@@ -7,7 +7,7 @@ exports.addorder = (req, res) => {
               email:req.body.email,
               carType:req.body.carType,
               serviceplan:req.body.serviceplan,
-              vehicleNumber:req.body.vehiclenumber,
+              vehiclenumber:req.body.vehiclenumber,
               address:req.body.address,
               requestedOn:req.body.requestedOn,
               deliveredOn:req.body.deliveredOn,
@@ -44,8 +44,8 @@ exports.addorder = (req, res) => {
 
 
 //Find Completed Orders
-exports.findCompltedOrders = (req, res) => {
-  Order.find({ status: "COMPLETED" })
+exports.findOrders = (req, res) => {
+  Ordermodel.find({ status: "PLACED" })
     .exec()
     .then((response) => {
       if (response.length == 0) {

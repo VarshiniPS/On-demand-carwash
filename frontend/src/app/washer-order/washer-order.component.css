@@ -1,0 +1,50 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+h1{
+    font-family: monospace;
+    word-spacing: 3px;
+    color:peru;
+    font-size:40px;
+}
+
+table {
+    width:70%;
+    border: 4px;
+    margin-left: 50px;
+    align-content: center;
+    table-layout: fixed;
+    
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding-left: 4em;
+    text-align:justify;
+  }
+  #t01 tr:nth-child(even) {
+    background-color: #eee;
+  }
+  #t01 tr:nth-child(odd) {
+   background-color: #fff;
+  }
+  #t01 th {
+    background-color: black;
+    color: white;
+  }
+  
+  .border{
+    padding: 10px;
+    margin-left: 250px;
+    margin-right: 40px;
+  }
+  .btn{
+    margin-right: 10px;
+    background-color:rgb(136, 207, 142);
+  }
+  #myicon {
+      font-size:20px;
+    margin-right: 10px;
+  }
