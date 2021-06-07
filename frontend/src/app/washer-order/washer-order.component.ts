@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { WasheractionService } from '../washeraction.service';
 
 export class custorders {
   constructor(
@@ -25,7 +26,9 @@ export class custorders {
 })
 export class WasherOrderComponent implements OnInit {
   orders:custorders[]=[];
-  constructor(private http: HttpClient) { }
+  selectedaction:any='';
+  radio:any=['accepted','rejected'];
+  constructor(private http: HttpClient,private washeraction:WasheractionService) { }
 
   ngOnInit(): void {
     this.getorders();
@@ -39,5 +42,12 @@ export class WasherOrderComponent implements OnInit {
       }
     );
     }
+
+    radioChangeHandler(event:any){
+      this.selectedaction=event.target.value;
+      console.log(this.selectedaction);
+      this.washeraction.emit<any>(this.selectedaction);
+    }
+  
   }
 

@@ -7,6 +7,7 @@ import { HttpClient} from '@angular/common/http';
 import { CheckoutService } from '../checkout.service';
 import { Router } from '@angular/router';
 import { MybookingsService } from '../mybookings.service';
+import { WasheractionService } from '../washeraction.service';
 
 @Component({
   selector: 'app-order',
@@ -18,13 +19,13 @@ orderform:FormGroup;
 public cartype=''; 
 public serviceplanchosen='';
 public personaldetails:any='';
-
+public orderaction:any='';
 
 
 
 
 constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder
- ,private http:HttpClient,private checkoutservice:CheckoutService,private router:Router,private booking:MybookingsService ) {
+ ,private http:HttpClient,private checkoutservice:CheckoutService,private router:Router,private booking:MybookingsService,private washeraction:WasheractionService ) {
   this.orderform=formbuilder.group({
   name:[''],
   email:[''],
@@ -52,7 +53,9 @@ ngOnInit(): void {
         email:this.personaldetails.email,
         carType:this.cartype,
         serviceplan:this.serviceplanchosen
-      })
+      });
+
+      
       
   }
   
@@ -64,8 +67,20 @@ ngOnInit(): void {
     );
     this.booking.emit<any>(this.orderform.value);
     alert('order placed');
+    this.washeraction.on<any>().subscribe(data=>{
+      this.orderaction=data;
+      console.log(this.orderaction);
+      
+      if(this.orderaction=="accepted")
+      {
+        alert("YOUR ORDER HAS BEEN ACCEPTED")
+      }else{
+        alert("WAIT FOR SOME TIME")
+      }
+    });
     this.router.navigate(['head'])
 }
+
 
 
     

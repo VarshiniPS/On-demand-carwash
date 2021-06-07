@@ -28,10 +28,12 @@
                 <td><span>{{order.deliveredOn}}</span></td>
                 <td><span>{{order.status}}</span></td>
                 <td>
-                    <select id="Action">
-                        <option value="Accepted">Accepted</option>
-                        <option value="Rejected">Rejected</option>
-                    </select>
+                
+                    <div *ngFor="let rad of radio">
+                    <input type="radio" name="action" value="{{rad}}" (change)="radioChangeHandler($event)" >
+                    <i>{{rad}}</i>
+                </div>
+                
                   </td>
             </tr>
         </tbody>
