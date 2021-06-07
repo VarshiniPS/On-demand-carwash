@@ -2,6 +2,8 @@ const express=require('express');
 const server1=express();
 const bodyparser=require('body-parser');
 const mongoose=require('mongoose');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 const authRoutes=require('./services/auth');
 const carRoutes=require('./services/car');
 const serviceRoutes=require('./services/car-wash');
@@ -10,92 +12,19 @@ const washerRoutes=require('./services/washer');
 
 const port=process.env.PORT || 4000;
 
+
+//connection to database
 const dbURI='mongodb+srv://varshinips:qwerty170@cluster0.i2q1n.mongodb.net/carwash';
 mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true})
 .catch((err)=>{
     console.log("db connection error:" + err);
 });
 
-const swaggerJsdoc=require("swagger-jsdoc");
-const swaggerUi=require("swagger-ui-express");
-//swagger
-
-const options = {
-    definition:{
-  openapi: '3.0.0',
-  info: {
-    title: 'ON DEMAND CAR WASH ADMIN API',
-    version: '1.0.0',
-},
-
- servers:[
-     {
-         url:"http://localhost:4000",
-     }
- ],
-},
- apis:["app.js"],
-};
 
 
-const specs = swaggerJsdoc(options);
-server1.use(
-    "/api-doc",
-    swaggerUi.serve,
-    swaggerUi.setup(specs,{
-        explorer:true
-    })
-);
-
-//schema
-/**
- * @swagger
- * components:
- * schemas:
- *      member:
- *      type:object
- *      required:
- *      - name
- *      - email
- *      - password
- *      - mobile
- *      - role
- *      - status
- *  properties:
- *      id:
- *          type:string
- *          description: The auto-generated id of the member
- *      name:
- *          type:string
- *          description:The name of the member
- *      email:
- *          type:string
- *          description:email of the member
- *      password:
- *           type:string
- *           description:password of the member
- *      mobile:
- *            type:string
- *            description:mobile number of the member
- *      role:
- *             type:string
- *             description:role of the member
- *      status:
- *              type:string
- *              decription:status of the member
- * 
- *      example:
- *          id:167890yuhiii
- *          name:ps
- *          email:ps@test.com
- *          password:1233yg
- *          mobile:9000000009
- *          role:ADMIN
- *          status:AVAILABLE
- * 
- */
 
 
+//thirpart middleware
 server1.use(bodyparser.urlencoded({
 extended:false
 }));
@@ -122,6 +51,37 @@ server1.use((req,res,next)=>{
     next();
 });
 
+const swaggerDefinition = {
+    openapi: '3.0.0',
+    info: {
+      title: 'Car_Wash API with Swagger',
+      version: '1.0.0',
+    },
+    description:
+        'This is a simple CRUD API application made with Express and documented with Swagger',
+      license: {
+        name: 'Licensed Under MIT',
+        url: 'https://spdx.org/licenses/MIT.html',
+      },
+    servers: [
+      {
+        url:"http://localhost:4000",
+        description: 'Admin server',
+      },
+    ],
+  };
+  
+  
+  const options = {
+    swaggerDefinition,
+    // Paths to files containing OpenAPI definitions
+    apis: ['./services/*.js'],
+  };
+  
+  const swaggerSpec = swaggerJSDoc(options);
+  server1.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  
+
 //every request from admin route goes via this url:/admin/
 
 server1.use("/admin/auth",authRoutes);
@@ -130,13 +90,14 @@ server1.use("/admin/car-services",serviceRoutes);
 server1.use("/admin/order",orderRoutes);
 server1.use("/admin/washer",washerRoutes);
 
-//handling errors on server side
+//handling errors on server side,application level middleware
 server1.use((req,res,next)=>{
     const error=new Error("Not found");
     error.status=404;
     next(error);
 });
 
+//error-handling middleware
 server1.use((error,req,res,next)=>{
     res.status(error.status||500);
     res.json({

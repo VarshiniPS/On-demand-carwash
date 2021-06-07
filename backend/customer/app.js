@@ -2,11 +2,12 @@ const express = require("express");
 const server2 = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const cors = require("cors");
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 const authRoutes = require("./services/auth");
 const accountRoutes = require("./services/account");
 const orderRoutes = require("./services/order");
-const serviceRoutes = require("./services/service");
+
 
 const port=process.env.PORT || 4001;
 
@@ -38,11 +39,42 @@ server2.use((req, res, next) => {
   next();
 });
 
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Car_Wash API with Swagger',
+    version: '1.0.0',
+  },
+  description:
+      'This is a simple CRUD API application made with Express and documented with Swagger',
+    license: {
+      name: 'Licensed Under MIT',
+      url: 'https://spdx.org/licenses/MIT.html',
+    },
+  servers: [
+    {
+      url:"http://localhost:4002",
+      description: 'Customer server',
+    },
+  ],
+};
+
+
+const options = {
+  swaggerDefinition,
+  // Paths to files containing OpenAPI definitions
+  apis: ['./services/*.js'],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+server2.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
+
 //Every request from customer route goes through this url : /customer
 server2.use("/customer/auth", authRoutes);
 server2.use("/customer/account", accountRoutes);
 server2.use("/customer/order", orderRoutes);
-server2.use("/customer/services",serviceRoutes);
 
 //Server Side Error Handling
 server2.use((req, res, next) => {

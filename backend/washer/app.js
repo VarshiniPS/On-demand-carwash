@@ -2,6 +2,8 @@ const express = require("express");
 const server3 = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 const accountRoutes = require("./services/account");
 const orderRoutes = require("./services/order");
 const port=process.env.PORT || 4002
@@ -31,6 +33,36 @@ server3.use((req, res, next) => {
   }
   next();
 });
+
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Car_Wash API with Swagger',
+    version: '1.0.0',
+  },
+  description:
+      'This is a simple CRUD API application made with Express and documented with Swagger',
+    license: {
+      name: 'Licensed Under MIT',
+      url: 'https://spdx.org/licenses/MIT.html',
+    },
+  servers: [
+    {
+      url:"http://localhost:4002",
+      description: 'Washer server',
+    },
+  ],
+};
+
+
+const options = {
+  swaggerDefinition,
+  // Paths to files containing OpenAPI definitions
+  apis: ['./services/*.js'],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+server3.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 

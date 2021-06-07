@@ -1,29 +1,5 @@
 const Customer = require("../models/customermodel");
 
-//view profile
-exports.viewProfile=(req,res)=>{
-  Customer.findById({ _id: req.params.custId })
-  .select("name email _id")
-  .exec()
-  .then(result=> {
-    if (result) {
-      return res.status(200).json({
-        name: result.name,
-        email: result.email,
-        _id: result._id,
-      });
-    } else {
-      return res.status(404).json({ message: "Invalid Id" });
-    }
-  })
-  .catch((err) => {
-    console.log("FInd Customer By Id: " + err);
-    res.status(500).json({
-      error: err,
-    });
-  });
-};
-
 
 //updating profile
 exports.updateProfile = (req, res) => {

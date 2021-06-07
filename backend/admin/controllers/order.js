@@ -1,7 +1,6 @@
 const ordermodel=require('../model/ordermodel');
 const membermodel=require('../model/membermodel');
 const customermodel=require('../model/customermodel');
-//give connection order db see the youtube video
 
 //finding placed order
 exports.findPlacedOrders=(req,res)=>{
@@ -28,30 +27,3 @@ exports.findPlacedOrders=(req,res)=>{
     });
 }
 
-//send order to washer
-exports.updateOrder=(req,res)=>{
-    const orderId=req.params.orderId;
-    ordermodel.updateOne(
-        {
-            _id:orderId
-        },
-        {
-            $ser:{
-                status:"IN-PROGRESS",
-                mechanicId:req.body.mechanicId
-            }
-        }
-    )
-    .exec()
-    .then((response)=>{
-        res.status(200).json({
-            message:"order assigned to washer successfully"
-        });
-    })
-    .catch((err)=>{
-        console.log(err);
-        res.status(500).json({
-            error:err
-        });
-    });
-}

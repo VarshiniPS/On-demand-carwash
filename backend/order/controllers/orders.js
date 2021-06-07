@@ -66,9 +66,3 @@ exports.findOrders = (req, res) => {
     });
 };
 
-// "Request Placed",
-//           "Request Cancel",
-//           "Request in Process",
-//           "Request Accepted",
-//           "Request Rejected",
-//           "Request Completed",

@@ -4,13 +4,9 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const authConfig = require("../config/authConfig");
 
+//customer signup
 exports.signup = (req, res, next) => {
-  //console.log("Inside Register");
 
-  /*if (!req.body.name || !req.body.email || !req.body.password) {
-    return res.status(400).json(
-      { message: "All fields are required" });
-  }*/
         User.find({ email: req.body.email })
             .exec()
             .then(user => {
@@ -53,6 +49,7 @@ exports.signup = (req, res, next) => {
     });
 };
 
+//customer login
 exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .exec()

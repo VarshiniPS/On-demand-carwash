@@ -24,7 +24,6 @@ import { ServicesComponent } from './services/services.component';
 import { CheckoutService } from './checkout.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactusComponent } from './contactus/contactus.component';
-import { SeriesComponent } from './series/series.component';
 import { CarbrandComponent } from './carbrand/carbrand.component';
 import { OrderComponent } from './order/order.component';
 import { HeadComponent } from './head/head.component';
@@ -55,7 +54,7 @@ import { BookingsComponent } from './bookings/bookings.component';
     ServicesComponent,
     ContactusComponent,
   
-    SeriesComponent,
+    
     CarbrandComponent,
     OrderComponent,
     HeadComponent,
