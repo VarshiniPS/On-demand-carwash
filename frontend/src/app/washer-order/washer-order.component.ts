@@ -26,12 +26,13 @@ export class custorders {
 })
 export class WasherOrderComponent implements OnInit {
   orders:custorders[]=[];
-  selectedaction:any='';
+  selectedaction:any=[];
   radio:any=['accepted','rejected'];
   constructor(private http: HttpClient,private washeraction:WasheractionService) { }
 
   ngOnInit(): void {
     this.getorders();
+
   }
   getorders(){
     this.http.get<any>('http://localhost:4005/order/findOrders').subscribe(
@@ -46,7 +47,8 @@ export class WasherOrderComponent implements OnInit {
     radioChangeHandler(event:any){
       this.selectedaction=event.target.value;
       console.log(this.selectedaction);
-      this.washeraction.emit<any>(this.selectedaction);
+      this.washeraction.communicateaction(this.selectedaction);
+     
     }
   
   }

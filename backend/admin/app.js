@@ -2,7 +2,6 @@ const express=require('express');
 const server1=express();
 const bodyparser=require('body-parser');
 const mongoose=require('mongoose');
-//const cors=require('cors');
 const authRoutes=require('./services/auth');
 const carRoutes=require('./services/car');
 const serviceRoutes=require('./services/car-wash');
@@ -17,6 +16,84 @@ mongoose.connect(dbURI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIn
     console.log("db connection error:" + err);
 });
 
+const swaggerJsdoc=require("swagger-jsdoc");
+const swaggerUi=require("swagger-ui-express");
+//swagger
+
+const options = {
+    definition:{
+  openapi: '3.0.0',
+  info: {
+    title: 'ON DEMAND CAR WASH ADMIN API',
+    version: '1.0.0',
+},
+
+ servers:[
+     {
+         url:"http://localhost:4000",
+     }
+ ],
+},
+ apis:["app.js"],
+};
+
+
+const specs = swaggerJsdoc(options);
+server1.use(
+    "/api-doc",
+    swaggerUi.serve,
+    swaggerUi.setup(specs,{
+        explorer:true
+    })
+);
+
+//schema
+/**
+ * @swagger
+ * components:
+ * schemas:
+ *      member:
+ *      type:object
+ *      required:
+ *      - name
+ *      - email
+ *      - password
+ *      - mobile
+ *      - role
+ *      - status
+ *  properties:
+ *      id:
+ *          type:string
+ *          description: The auto-generated id of the member
+ *      name:
+ *          type:string
+ *          description:The name of the member
+ *      email:
+ *          type:string
+ *          description:email of the member
+ *      password:
+ *           type:string
+ *           description:password of the member
+ *      mobile:
+ *            type:string
+ *            description:mobile number of the member
+ *      role:
+ *             type:string
+ *             description:role of the member
+ *      status:
+ *              type:string
+ *              decription:status of the member
+ * 
+ *      example:
+ *          id:167890yuhiii
+ *          name:ps
+ *          email:ps@test.com
+ *          password:1233yg
+ *          mobile:9000000009
+ *          role:ADMIN
+ *          status:AVAILABLE
+ * 
+ */
 
 
 server1.use(bodyparser.urlencoded({

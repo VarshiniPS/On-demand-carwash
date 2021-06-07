@@ -67,17 +67,13 @@ ngOnInit(): void {
     );
     this.booking.emit<any>(this.orderform.value);
     alert('order placed');
-    this.washeraction.on<any>().subscribe(data=>{
-      this.orderaction=data;
-      console.log(this.orderaction);
-      
-      if(this.orderaction=="accepted")
+    this.washeraction.sendaction.subscribe((actions)=>{
+      console.log(actions);
+      if(actions=='accepted')
       {
-        alert("YOUR ORDER HAS BEEN ACCEPTED")
-      }else{
-        alert("WAIT FOR SOME TIME")
+        alert('order accepted')
       }
-    });
+    })
     this.router.navigate(['head'])
 }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject,Observable} from 'rxjs';
+import {BehaviorSubject,Observable, Subject} from 'rxjs';
 
 
 
@@ -7,14 +7,12 @@ import {BehaviorSubject,Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class WasheractionService {
-public _subject=new BehaviorSubject<any>('');
-emit<T>(data:T){
-  this._subject.next(data);
-}
+sendaction=new Subject();
 
-on<T>():Observable<T>{
-  return this._subject.asObservable();
-  
+  constructor() { }
+
+communicateaction(action){
+  this.sendaction.next(action);
 }
 
 }
