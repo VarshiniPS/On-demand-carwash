@@ -93,9 +93,9 @@ describe("when email and password is given correctly",()=>{
                 email:"psvarshini3@gmail.com",
                 password:"qwerty170",
             }).then(response=>{
-                expect(response.statusCode).to.be.equal(200); 
+                expect(response.statusCode).to.equal(200);
                 this.token=response.body.token                
-                done()
+                done();
             })
             .catch((err)=>{
                 console.log(err);
