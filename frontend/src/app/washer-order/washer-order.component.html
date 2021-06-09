@@ -29,12 +29,15 @@
                 <td><span>{{order.status}}</span></td>
                 <td>
                 
-                    <div *ngFor="let rad of radio">
-                    <input type="radio" name="action" value="{{rad}}" (change)="radioChangeHandler($event)" >
-                    <i>{{rad}}</i>
-                </div>
-                
-                  </td>
+<div >
+<label >
+<input type="radio"  value="ACCEPTED" (change)="radioChangeHandler($event)" >ACCEPTED
+</label>
+<label >
+<input type="radio"  value="REJECTED" (change)="radioChangeHandler($event)" >REJECTED
+</label>
+</div>
+</td>
             </tr>
         </tbody>
     </table>

@@ -12,7 +12,7 @@ table {
     border: 4px;
     margin-left: 50px;
     align-content: center;
-    table-layout: fixed;
+    table-layout: auto;
     
   }
 

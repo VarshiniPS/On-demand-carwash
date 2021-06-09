@@ -1,0 +1,11 @@
+.summary{
+    background-color: lightgrey;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    text-align: center;
+}
+
+.btn{
+    text-align: center;
+}

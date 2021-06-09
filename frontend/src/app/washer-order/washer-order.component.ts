@@ -28,6 +28,7 @@ export class WasherOrderComponent implements OnInit {
   orders:custorders[]=[];
   selectedaction:any=[];
   radio:any=['accepted','rejected'];
+
   constructor(private http: HttpClient,private washeraction:WasheractionService) { }
 
   ngOnInit(): void {
@@ -47,7 +48,7 @@ export class WasherOrderComponent implements OnInit {
     radioChangeHandler(event:any){
       this.selectedaction=event.target.value;
       console.log(this.selectedaction);
-      this.washeraction.communicateaction(this.selectedaction);
+      this.washeraction.emit<any>(this.selectedaction);
      
     }
   

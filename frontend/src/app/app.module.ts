@@ -41,7 +41,10 @@ import { AdminServicesComponent } from './admin-services/admin-services.componen
 import { AdminCarComponent } from './admin-car/admin-car.component';
 import { CustomerLogoutComponent } from './customer-logout/customer-logout.component';
 import { WasherOrderComponent } from './washer-order/washer-order.component';
-import { BookingsComponent } from './bookings/bookings.component';
+import { TrackorderComponent } from './trackorder/trackorder.component';
+import  { NgxStripeModule } from 'ngx-stripe';
+
+
 
 @NgModule({
   declarations: [
@@ -69,7 +72,8 @@ import { BookingsComponent } from './bookings/bookings.component';
     AdminCarComponent,
     CustomerLogoutComponent,
     WasherOrderComponent,
-    BookingsComponent
+    TrackorderComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -92,7 +96,8 @@ import { BookingsComponent } from './bookings/bookings.component';
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    
+    NgxStripeModule.forRoot('pk_test_51Iyk3ESHHhnGOdvyTR2WBQ8MJ56c4QhbRnC3Xyz1buMArCvPp4QTtZfM2LtXLisGY54scWIjiC8cfB3dUiv9BHjt00l8XmE7SC')
+  
   ],
   providers: [CheckoutService],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { CheckoutService } from '../checkout.service';
 import { Router } from '@angular/router';
 import { MybookingsService } from '../mybookings.service';
 import { WasheractionService } from '../washeraction.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-order',
@@ -20,12 +21,10 @@ public cartype='';
 public serviceplanchosen='';
 public personaldetails:any='';
 public orderaction:any='';
-
-
-
+public bookingaction:any='';
 
 constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder
- ,private http:HttpClient,private checkoutservice:CheckoutService,private router:Router,private booking:MybookingsService,private washeraction:WasheractionService ) {
+ ,private http:HttpClient,private checkoutservice:CheckoutService,private router:Router,private booking:MybookingsService,private washeraction:WasheractionService,private modalService: NgbModal ) {
   this.orderform=formbuilder.group({
   name:[''],
   email:[''],
@@ -39,7 +38,7 @@ constructor(private orderservice: OrderService,private serviceplan:ServiceplanSe
 ngOnInit(): void {
     this.orderservice.on<any>().subscribe(data=>{
         this.cartype=data;
-        //this.serviceplan=data;
+       
       });
       this.serviceplan.on<any>().subscribe(data=>{
         this.serviceplanchosen=data;
@@ -61,25 +60,18 @@ ngOnInit(): void {
   
   orderdata(){
     console.log(this.orderform.value);
-    this.checkoutservice.placeorder(this.orderform.value)
-    .subscribe(
-      response=>console.log('success',response)
+    alert('YOUR ORDER HAS BEEN PLACED');
+    this.checkoutservice.placeorder(this.orderform.value).subscribe(
+      response=>console.log('success,response')
     );
     this.booking.emit<any>(this.orderform.value);
-    alert('order placed');
-    this.washeraction.sendaction.subscribe((actions)=>{
-      console.log(actions);
-      if(actions=='accepted')
-      {
-        alert('order accepted')
-      }
-    })
-    this.router.navigate(['head'])
+    this.trackorder();
+      
 }
 
-
-
-    
+trackorder(){
+  this.router.navigate(['trackorder'])
+}
 }
 
 
