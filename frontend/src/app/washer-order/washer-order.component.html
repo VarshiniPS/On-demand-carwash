@@ -30,12 +30,9 @@
                 <td>
                 
 <div >
-<label >
-<input type="radio"  value="ACCEPTED" (change)="radioChangeHandler($event)" >ACCEPTED
-</label>
-<label >
-<input type="radio"  value="REJECTED" (change)="radioChangeHandler($event)" >REJECTED
-</label>
+<button (click)= "updatestatus();">ACCEPTED</button>
+<br>
+<button (click)="updatestatus();"> REJECTED</button>
 </div>
 </td>
             </tr>

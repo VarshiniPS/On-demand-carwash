@@ -43,6 +43,7 @@ import { CustomerLogoutComponent } from './customer-logout/customer-logout.compo
 import { WasherOrderComponent } from './washer-order/washer-order.component';
 import { TrackorderComponent } from './trackorder/trackorder.component';
 import  { NgxStripeModule } from 'ngx-stripe';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -73,6 +74,7 @@ import  { NgxStripeModule } from 'ngx-stripe';
     CustomerLogoutComponent,
     WasherOrderComponent,
     TrackorderComponent,
+    TestComponent,
    
   ],
   imports: [

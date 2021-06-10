@@ -60,6 +60,8 @@ public washeraction:any=[];
 
     this.washer.on<any>().subscribe(data=>{
      this.washeraction=data;
+     console.log(data);
+     
     });
     /*this.stripeTest = this.fb.group({
       name: ['', [Validators.required]]

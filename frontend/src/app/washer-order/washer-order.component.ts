@@ -45,12 +45,10 @@ export class WasherOrderComponent implements OnInit {
     );
     }
 
-    radioChangeHandler(event:any){
-      this.selectedaction=event.target.value;
-      console.log(this.selectedaction);
-      this.washeraction.emit<any>(this.selectedaction);
-     
-    }
+   updatestatus(id,updatebody){
+   const  url='http://localhost:4005/orders/'+id;
+     return this.http.patch(url,updatebody);
+   }
   
   }
 
