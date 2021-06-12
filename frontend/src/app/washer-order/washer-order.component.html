@@ -24,20 +24,89 @@
                 <td><span>{{order.carType}}</span></td>
                 <td><span>{{order.serviceplan}}</span></td>
                 <td><span>{{order.address}}</span></td>
-                <td><span>{{order.requestedOn}}</span></td>
-                <td><span>{{order.deliveredOn}}</span></td>
+                <td><span>{{order.requestedOn| date:'dd-MM-yyyy HH:mm:ss'}}</span></td>
+                <td><span>{{order.deliveredOn| date:'dd-MM-yyyy HH:mm:ss'}}</span></td>
                 <td><span>{{order.status}}</span></td>
                 <td>
-                
-<div >
-<button (click)= "updatestatus();">ACCEPTED</button>
-<br>
-<button (click)="updatestatus();"> REJECTED</button>
-</div>
-</td>
+    <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, order)">
+        <i class="fa fa-edit"></i>Edit</button>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<ng-template #contentEdit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Update Status</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editForm" novalidate>
+        <div class="form-group"> 
+          <label for="order">Customer Name</label> 
+             <div class="input-group"> 
+               <input id="order" name="name" formControlName="name" class="form-control"> 
+             </div> 
+        </div>
+        <div class="form-group"> 
+             <label for="order">Email</label> 
+                <div class="input-group"> 
+                  <input id="email" name="email" formControlName="email" class="form-control"> 
+                </div> 
+        </div>
+        <div class="form-group"> 
+            <label for="order">Car Type</label> 
+              <div class="input-group"> 
+                <input id="carType" name="carType" formControlName="carType" class="form-control"> 
+              </div> 
+        </div>
+        <div class="form-group"> 
+          <label for="order">Service Name</label> 
+            <div class="input-group"> 
+              <input id="serviceplan" name="serviceplan" formControlName="serviceplan" class="form-control"> 
+            </div> 
+        </div>
+        <div class="form-group"> 
+            <label for="order">Vehicle Number</label> 
+              <div class="input-group"> 
+                <input id="vehiclenumber" name="vehiclenumber" formControlName="vehiclenumber" class="form-control"> 
+              </div> 
+        </div>
+        <div class="form-group"> 
+          <label for="order">Address</label> 
+            <div class="input-group"> 
+              <input id="address" name="address" formControlName="address" class="form-control"> 
+            </div> 
+      </div>
+      <div class="form-group"> 
+        <label for="order">Requested On</label> 
+          <div class="input-group"> 
+            <input id="requestedOn" name="requestedOn" formControlName="requestedOn" class="form-control"> 
+          </div> 
+    </div>
+    <div class="form-group"> 
+      <label for="order">Delivered On</label> 
+        <div class="input-group"> 
+          <input id="deliveredOn" name="deliveredOn" formControlName="deliveredOn" class="form-control"> 
+        </div> 
+  </div>
+  <div class="form-group"> 
+    <label for="order">Status</label> 
+      <div class="input-group"> 
+        <input id="status" name="status" formControlName="status" class="form-control">
+      </div> 
+  </div>
+        <div class="border text-center">
+           <button data-dismiss="modal" class="btn btn-info" (click)="onSave()">Save Changes</button>
+         </div>
+      </form>
+    </div>   
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+    </div>
+  </ng-template>
 
 

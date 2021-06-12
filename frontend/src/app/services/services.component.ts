@@ -23,7 +23,7 @@ export class Services{
   
 })
 export class ServicesComponent implements OnInit {
-  selectedservice:any ='';
+selectedservice:any ='';
 services:Services[]=[];
   constructor(private router:Router,private http:HttpClient,private serviceplan:ServiceplanService) {
     
@@ -48,8 +48,6 @@ selectedService (event:any){
     console.log(this.selectedservice);
     this.serviceplan.emit<any>(this.selectedservice);
     this.gotoorder('order');
-    //this.gotoorder('order');
-    //this.router.navigate(['carmodel']);
 }
 
 gotoorder(pageName:string):void{

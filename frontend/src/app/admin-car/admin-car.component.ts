@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup} from '@angular/forms';
 
 export class Car{
   constructor(
@@ -20,11 +21,20 @@ export class Car{
 export class AdminCarComponent implements OnInit {
   closeResult!: string;
   cars:Car[]=[];
+  car!:Car;
+  editForm !: FormGroup;
+  deleteId ! : String;
 
-  constructor(private httpClient: HttpClient,private modalService: NgbModal) { }
+  constructor(private httpClient: HttpClient,private modalService: NgbModal,
+    private fb:FormBuilder) { }
+
 
   ngOnInit(): void {
     this.getCar();
+    this.editForm = this.fb.group({
+      _id: [''],
+      name: ['']
+   });
   }
   getCar(){
     this.httpClient.get<any>('http://localhost:4000/admin/car-func/findAllCars').subscribe(
@@ -70,12 +80,52 @@ export class AdminCarComponent implements OnInit {
     }
 
     onSubmit(f: NgForm) {
-      const url = 'http://localhost:4003/admin/car-func/addCar';
+      console.log(f.value);
+      const url = 'http://localhost:4000/admin/car-func/addCar';
       this.httpClient.post(url, f.value)
         .subscribe((result) => {
           this.ngOnInit(); //reload the table
         });
       this.modalService.dismissAll(); //dismiss the modal
+    }
+
+    openEdit(targetModal: any,car:Car){
+      this.modalService.open(targetModal,{
+        centered: true,
+        backdrop: 'static',
+        size: 'lg'
+      });
+      this.editForm.patchValue( {
+        _id: car._id, 
+        name: car.name,
+      });
+    }
+    onSave() {
+      const editURL = 'http://localhost:4000/admin/car-func/updateCar/'+ this.editForm.value._id;
+      console.log(this.editForm.value);
+      this.httpClient.put(editURL, this.editForm.value)
+        .subscribe((result) => {
+          this.ngOnInit();
+        });
+          this.modalService.dismissAll();
+
+    }
+
+    openDelete(targetModal:any, car: Car) {
+       this.deleteId = car._id;
+      this.modalService.open(targetModal, {
+        backdrop: 'static',
+        size: 'lg'
+      });
+    }
+
+    onDelete() {
+      const deleteURL = 'http://localhost:4000/admin/car-func/deleteCar/' + this.deleteId;
+      this.httpClient.delete(deleteURL)
+        .subscribe((result) => {
+          this.ngOnInit();
+          this.modalService.dismissAll();
+        });
     }
 
 }

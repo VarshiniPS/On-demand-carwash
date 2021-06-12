@@ -9,8 +9,7 @@ const customerSchema=mongoose.Schema({
     },
     email:{
         type:String,
-        unique:true,
-       // match:/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}]+
+        unique:true
     },
     password:{
         type:String

@@ -44,6 +44,7 @@ import { WasherOrderComponent } from './washer-order/washer-order.component';
 import { TrackorderComponent } from './trackorder/trackorder.component';
 import  { NgxStripeModule } from 'ngx-stripe';
 import { TestComponent } from './test/test.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
 
@@ -75,6 +76,7 @@ import { TestComponent } from './test/test.component';
     WasherOrderComponent,
     TrackorderComponent,
     TestComponent,
+    ThankyouComponent,
    
   ],
   imports: [

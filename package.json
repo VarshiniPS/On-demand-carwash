@@ -28,6 +28,7 @@
     "ngx-stripe": "^11.1.0",
     "nodemon": "^2.0.7",
     "razorpay": "^2.0.6",
+    "serverless": "^2.45.2",
     "stripe": "^8.152.0",
     "supertest": "^6.1.3",
     "swagger-jsdoc": "6.1.0",

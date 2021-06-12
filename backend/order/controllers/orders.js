@@ -66,3 +66,24 @@ exports.findOrders = (req, res) => {
     });
 };
 
+//updating order
+exports.updateOrder=(req,res)=>{
+  const id=req.params.orderId;
+  Ordermodel.updateMany({
+      _id:id
+  },
+  {$set:req.body})
+  .exec()
+  .then((response)=>{
+      console.log("updated status successfully");
+      res.status(200).json({
+          message:"status update successfully"
+      });
+  })
+  .catch((err)=>{
+      console.log(err);
+      res.status(500).json({
+          "status update error":err
+      });
+  });
+}

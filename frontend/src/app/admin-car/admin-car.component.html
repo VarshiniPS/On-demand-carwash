@@ -18,11 +18,9 @@
                 <td><span>{{i+1}}</span></td>
                 <td><span>{{car}}</span></td>
                 <td>
-                    <button class="btn btn-sm btn-info">
-                      <i class="fa fa-search"></i>Details</button>
-                    <button class="btn btn-sm btn-warning">
+                  <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, car)">
                       <i class="fa fa-edit"></i>Edit</button>
-                    <button class="btn btn-sm btn-danger">
+                  <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, car)">
                       <i class="fa fa-remove"></i>Delete</button>
                   </td>
             </tr>
@@ -43,7 +41,7 @@
         <div class="form-group">
           <label for="car">Car name</label>
           <div class="input-group">
-            <input id="car" name="car" class="form-control" ngModel>
+            <input id="car" name="name" class="form-control" ngModel>
           </div>
         </div>
         <div>
@@ -55,5 +53,48 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+
+  <ng-template #contentEdit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Update Car</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editForm" novalidate>
+        <div class="form-group"> 
+         <label for="car">Car name</label> 
+            <div class="input-group"> 
+              <input id="car" name="name" formControlName="name" class="form-control"> 
+            </div> 
+        </div>
+        <div class="border text-center">
+           <button data-dismiss="modal" class="btn btn-info" (click)="onSave()">Save Changes</button>
+         </div>
+      </form>
+    </div>   
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+    </div>
+  </ng-template>
+
+  <ng-template #contentDelete let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Confirm Delete</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h2>Are you sure you want to delete this record.</h2>
+      <div class="border text-center"> 
+        <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button> 
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
     </div>
   </ng-template>

@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const checkAuth = require("../middlewares/check-auth");
+//const checkAuth = require("../middlewares/check-auth");
 const CarController = require("../controllers/car");
 
 //Add Car
 router.post(
   "/addCar",
-  [checkAuth.verifyToken, checkAuth.isAdmin],
+  //[checkAuth.verifyToken, checkAuth.isAdmin],
   CarController.addCar
 );
 
@@ -16,13 +16,13 @@ router.get("/findAllCars", CarController.findAllCars);
 //Update Car Details
 router.patch(
   "/updateCar/:id",
-  [checkAuth.verifyToken, checkAuth.isAdmin],
+  //[checkAuth.verifyToken, checkAuth.isAdmin],
   CarController.updateCar
 );
 
 router.delete(
   "/deleteCar/:carId",
-  [checkAuth.verifyToken, checkAuth.isAdmin],
+  //[checkAuth.verifyToken, checkAuth.isAdmin],
   CarController.deleteCar
 );
 module.exports = router;

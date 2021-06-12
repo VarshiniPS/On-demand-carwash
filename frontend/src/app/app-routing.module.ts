@@ -11,6 +11,7 @@ import { HeadComponent } from './head/head.component';
 import { OrderComponent } from './order/order.component';
 import { WasherComponent } from './washer/washer.component';
 import { TrackorderComponent } from './trackorder/trackorder.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
 
 const routes: Routes = [
   {path:'',component:HeaderComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:'adash',component:AdminComponent},
   {path:'order',component:OrderComponent},
   {path:'washer',component:WasherComponent},
-  {path:'trackorder',component:TrackorderComponent}
+  {path:'trackorder',component:TrackorderComponent},
+  {path:'thankyou',component:ThankyouComponent}
  
   
 ];

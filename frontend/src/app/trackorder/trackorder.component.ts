@@ -24,7 +24,7 @@ export class TrackorderComponent implements OnInit {
  stripeTest: FormGroup;*/
 
 public pays:any=[];
-public washeraction:any=[];
+public washaction:any=[];
 /*cardOptions: StripeCardElementOptions = {
     style: {
       base: {
@@ -56,33 +56,17 @@ public washeraction:any=[];
   ngOnInit(): void {
     this.mybooking.on<any>().subscribe(data=>{
       this.pays=data;
-    });
+    })
 
-    this.washer.on<any>().subscribe(data=>{
-     this.washeraction=data;
-     console.log(data);
-     
-    });
-    /*this.stripeTest = this.fb.group({
-      name: ['', [Validators.required]]
-    });*/
-
+  this.washer.on<any>().subscribe(data=>{
+    this.washaction=data;
+    console.log(data);
+    
+   });
+  
   }
+  
  
-/* createToken(): void {
-    const name = this.stripeTest.get('name').value;
-    this.stripeService
-      .createToken(this.card.element, { name })
-      .subscribe((result) => {
-        if (result.token) {
-          // Use the token
-          console.log(result.token.id);
-        } else if (result.error) {
-          // Error creating the token
-          console.log(result.error.message);
-        }
-      });
-  }*/
 
  pay(amount: any) {    
  

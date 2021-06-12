@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const checkAuth=require('../middlewares/check-auth')
+//const checkAuth=require('../middlewares/check-auth')
 const ServiceController=require('../controllers/service');
 
 /**
@@ -39,7 +39,8 @@ const ServiceController=require('../controllers/service');
  *                    type:string
  */
 
-router.post('/addService',[checkAuth.verifyToken,checkAuth.isAdmin],
+router.post('/addService',
+//[checkAuth.verifyToken,checkAuth.isAdmin],
     ServiceController.addService
     );
 
@@ -63,7 +64,7 @@ router.post('/addService',[checkAuth.verifyToken,checkAuth.isAdmin],
  */
 router.get('/findAll',ServiceController.findAll);
 
-//router.get('/findById/:serviceId',ServiceController.findByServiceId);
+
 
 /**
  * @swagger
@@ -104,7 +105,8 @@ router.get('/findAll',ServiceController.findAll);
  * 
  */
 
-router.put('/updateService/:serviceId',[checkAuth.verifyToken,checkAuth.isAdmin],
+router.put('/updateService/:serviceId',
+//[checkAuth.verifyToken,checkAuth.isAdmin],
 ServiceController.updateService
 );
 /**
@@ -134,7 +136,8 @@ ServiceController.updateService
  *  
  */
 
-router.delete('/deleteService/:serviceId',[checkAuth.verifyToken,checkAuth.isAdmin],
+router.delete('/deleteService/:serviceId',
+//[checkAuth.verifyToken,checkAuth.isAdmin],
 ServiceController.deleteService);
 
 module.exports=router;

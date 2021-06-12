@@ -70,7 +70,7 @@ ngOnInit(): void {
 }
 
 trackorder(){
-  this.router.navigate(['trackorder'])
+  this.router.navigate(['thankyou'])
 }
 }
 
