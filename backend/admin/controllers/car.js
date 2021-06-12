@@ -92,4 +92,3 @@ exports.findAllCars=(req,res)=>{
         });
       });
   };
-  

@@ -1,5 +1,6 @@
+<div class="container">
 <div class="summary">
-    <h1>ORDER SUMMARY</h1>
+    <h1 class="order">ORDER SUMMARY</h1>
       {{pays.name}}
       <br>
       {{pays.email}}
@@ -13,23 +14,24 @@
       {{pays.address}}
       <br>
 </div>
-
+<hr>
 <div>
-  <h2>YOUR STATUS:</h2>
- {{washaction}}
-</div>
+ <h1> WASHER DETAILS:</h1>
+  <h3>Name:vps</h3>
+  <h3>Email:vps@test.com</h3>
+  <h3>mobile:9073482782</h3>
 
+</div>
+<hr>
 <div class="container mt-5">
-  <h2> Checkout</h2>
+  <h2>KINDLY PAY BY CLICKING ON PAY</h2>
   <div class="row mt-5">
     <div class="col-md-4">
       <button (click)="pay(5000)" class="btn btn-primary btn-block">Pay </button>
     </div>
   </div>
 
-
-
-
+</div>
 
 <br>
 <app-footer></app-footer>

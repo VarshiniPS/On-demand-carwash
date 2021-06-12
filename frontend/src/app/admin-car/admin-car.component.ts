@@ -19,11 +19,11 @@ export class Car{
   styleUrls: ['./admin-car.component.css']
 })
 export class AdminCarComponent implements OnInit {
-  closeResult!: string;
+  closeResult: string;
   cars:Car[]=[];
-  car!:Car;
-  editForm !: FormGroup;
-  deleteId ! : String;
+  car:Car;
+  editForm : FormGroup;
+  deleteId  : String;
 
   constructor(private httpClient: HttpClient,private modalService: NgbModal,
     private fb:FormBuilder) { }

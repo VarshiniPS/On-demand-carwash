@@ -1,0 +1,16 @@
+.container {
+    height:65%;
+    width: 100%;
+    text-align: center;
+    background-attachment: fixed;
+} 
+
+.body{
+    background-color: lightgrey;
+}
+
+.btn button{
+    color:black;
+    background-color: green;
+    text-align: center;
+}

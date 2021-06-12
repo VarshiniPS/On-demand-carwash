@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
 import { Router} from '@angular/router';
+import { WasherdetailsService } from '../washerdetails.service';
 
 @Component({
   selector: 'app-loginmember',
@@ -10,7 +11,8 @@ import { Router} from '@angular/router';
 })
 export class LoginmemberComponent implements OnInit {
   formGroup:FormGroup;
-  constructor(private authService:AuthServiceService,private router:Router) { }
+  washerdetails:any=[];
+  constructor(private authService:AuthServiceService,private router:Router,private washer:WasherdetailsService) { }
 
   ngOnInit(){
     this.initForm();
@@ -30,6 +32,8 @@ export class LoginmemberComponent implements OnInit {
           this.router.navigate(['adash']);
           }else if(result.role=="WASHER"){
           console.log(result);
+            this.washerdetails=result;
+            this.washer.emit<any>(this.washerdetails);
           alert(result.message);
           this.router.navigate(['washer']);
           }else{

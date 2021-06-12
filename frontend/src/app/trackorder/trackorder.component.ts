@@ -1,16 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MybookingsService } from '../mybookings.service';
-import { WasheractionService } from '../washeraction.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PaymentService } from '../payment.service';
-import { StripeCardComponent, StripeService} from "ngx-stripe";
+import { WasherdetailsService } from '../washerdetails.service';
 import {
-  StripeCardElementOptions,
   StripeElementsOptions
 } from '@stripe/stripe-js';
 
-
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,47 +15,30 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TrackorderComponent implements OnInit {
   [x: string]: any;
-/* @ViewChild(StripeCardComponent) card: StripeCardComponent;
- stripeTest: FormGroup;*/
 
 public pays:any=[];
-public washaction:any=[];
-/*cardOptions: StripeCardElementOptions = {
-    style: {
-      base: {
-        iconColor: '#666EE8',
-        color: '#31325F',
-        fontWeight: '300',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSize: '18px',
-        '::placeholder': {
-          color: '#CFD7E0'
-        }
-      }
-    }
-  };*/
 
-  elementsOptions: StripeElementsOptions = {
+elementsOptions: StripeElementsOptions = {
     locale: 'es'
   };
 
-  
+ 
 
-
-
-  
-  
-
-  constructor(private mybooking:MybookingsService,private washer:WasheractionService,private razorpay:PaymentService,private fb: FormBuilder, private stripeService: StripeService,private http:HttpClient) { }
-  //handler:any = null;
+ constructor(private mybooking:MybookingsService,private washieeaction:WasherdetailsService,private router:Router) { }
+ 
   ngOnInit(): void {
     this.mybooking.on<any>().subscribe(data=>{
       this.pays=data;
     })
 
-  this.washer.on<any>().subscribe(data=>{
-    this.washaction=data;
+  this.washieeaction.on<any>().subscribe(data=>{
+    this.washdetails=data;
     console.log(data);
+    if(data==="ACCEPTED"){
+      alert("YOUR ORDER HAS BEEN ACCEPTED BY THE WASHER");
+    }else{
+      alert("YOUR ORDER HAS BEEN CONFIRMED BY THE WASHER");
+    }
     
    });
   
@@ -78,6 +56,8 @@ public washaction:any=[];
         // Get the token ID to your server-side code for use.
         console.log(token)
         alert('payment successful');
+        this.router.navigate(['head']);
+        
       }
     });
  
@@ -118,9 +98,11 @@ public washaction:any=[];
        
       window.document.body.appendChild(s);
     }
+
+    
   }
 
-  
+
 
 
 }

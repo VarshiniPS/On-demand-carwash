@@ -48,6 +48,7 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +77,8 @@ import { ThankyouComponent } from './thankyou/thankyou.component';
     WasherOrderComponent,
     TrackorderComponent,
     TestComponent,
-    ThankyouComponent,
+    ThankyouComponent
+ 
    
   ],
   imports: [

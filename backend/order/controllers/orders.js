@@ -45,7 +45,7 @@ exports.addorder = (req, res) => {
 
 //Find Completed Orders
 exports.findOrders = (req, res) => {
-  Ordermodel.find({ status: "PLACED" })
+  Ordermodel.find()
     .exec()
     .then((response) => {
       if (response.length == 0) {
@@ -77,7 +77,7 @@ exports.updateOrder=(req,res)=>{
   .then((response)=>{
       console.log("updated status successfully");
       res.status(200).json({
-          message:"status update successfully"
+          message:"status updated successfully"
       });
   })
   .catch((err)=>{

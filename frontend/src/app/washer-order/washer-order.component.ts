@@ -111,13 +111,10 @@ export class WasherOrderComponent implements OnInit {
           this.ngOnInit();
         });
           this.modalService.dismissAll();
-    }
+    
 
-    washerselectedaction (event:any){
-      this.washeract=event.target.value;
-      console.log(this.washeract);
-      this.washeraction.emit<any>(event.target.value);
-     
-  }
+  this. washeract= this.editForm.value.status;
+  this.washeraction.emit<any>(this.washeract)
+}
 
 }
