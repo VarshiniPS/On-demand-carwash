@@ -23,6 +23,7 @@ public personaldetails:any='';
 public orderaction:any='';
 public bookingaction:any='';
 
+
 constructor(private orderservice: OrderService,private serviceplan:ServiceplanService,private personaldetail:PersonaldetailService,private formbuilder:FormBuilder
  ,private http:HttpClient,private checkoutservice:CheckoutService,private router:Router,private booking:MybookingsService,private washeraction:WasheractionService,private modalService: NgbModal ) {
   this.orderform=formbuilder.group({
@@ -70,8 +71,11 @@ ngOnInit(): void {
 }
 
 trackorder(){
-  this.router.navigate(['thankyou'])
+  this.router.navigate(['head']);
 }
+
+
+  
 }
 
 

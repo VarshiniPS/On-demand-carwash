@@ -14,7 +14,7 @@ router.post(
 router.get("/findAllCars", CarController.findAllCars);
 
 //Update Car Details
-router.patch(
+router.put(
   "/updateCar/:id",
   //[checkAuth.verifyToken, checkAuth.isAdmin],
   CarController.updateCar

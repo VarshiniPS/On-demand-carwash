@@ -17,6 +17,7 @@ export class TrackorderComponent implements OnInit {
   [x: string]: any;
 
 public pays:any=[];
+public washdetails:any=[]=[];
 
 elementsOptions: StripeElementsOptions = {
     locale: 'es'
@@ -34,36 +35,28 @@ elementsOptions: StripeElementsOptions = {
   this.washieeaction.on<any>().subscribe(data=>{
     this.washdetails=data;
     console.log(data);
-    if(data==="ACCEPTED"){
-      alert("YOUR ORDER HAS BEEN ACCEPTED BY THE WASHER");
-    }else{
-      alert("YOUR ORDER HAS BEEN CONFIRMED BY THE WASHER");
-    }
-    
-   });
-  
+  });
   }
   
  
 
- pay(amount: any) {    
+ pay(amount: any) {   
  
     var handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_51Iyk3ESHHhnGOdvyTR2WBQ8MJ56c4QhbRnC3Xyz1buMArCvPp4QTtZfM2LtXLisGY54scWIjiC8cfB3dUiv9BHjt00l8XmE7SC',
       locale: 'auto',
       token: function (token: any) {
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
         console.log(token)
         alert('payment successful');
         this.router.navigate(['head']);
-        
+       
       }
     });
  
     handler.open({
       name: 'THE CAR SPA',
       description: 'car wash',
+      currency:"INR",
       amount: amount * 100
     });
  
@@ -85,9 +78,9 @@ elementsOptions: StripeElementsOptions = {
           this.http.post("http://localhost:3000/paynow",{
           token : token.id
           }).subscribe(
-    (res)=>{
-  console.log("The response from server is ",res);
-  console.log('Payment Done')
+              (res)=>{
+            console.log("The response from server is ",res);
+            console.log('Payment Done')
             console.log(token)
             alert('Payment Success!!');
           })
@@ -101,8 +94,9 @@ elementsOptions: StripeElementsOptions = {
 
     
   }
+  
 
-
+  
 
 
 }
