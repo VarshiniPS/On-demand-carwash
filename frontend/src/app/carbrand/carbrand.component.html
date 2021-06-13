@@ -4,7 +4,7 @@
 <div>
 <h1>AVAILABLE CARS</h1>
 <div class="navitem" *ngFor="let car of Cars">
-  <input type="button" value="{{car}}" (click)="buttonChangeHandler($event)" mat-raised-button color="warn">
+  <input type="button" value="{{car.name}}" (click)="buttonChangeHandler($event)" mat-raised-button color="warn">
 </div>
 <br>
 <br>

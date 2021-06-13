@@ -37,7 +37,7 @@ exports.addCar=(req,res)=>{
 //find all cars
 exports.findAllCars=(req,res)=>{
     Carmodel.find()
-    .distinct("name")
+    .select("_id name")
     .exec()
     .then((response)=>{
         if(response.length==0){

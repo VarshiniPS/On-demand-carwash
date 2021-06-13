@@ -16,11 +16,11 @@
         <tbody>
             <tr *ngFor="let car of cars; let i=index">
                 <td><span>{{i+1}}</span></td>
-                <td><span>{{car}}</span></td>
+                <td><span>{{car.name}}</span></td>
                 <td>
-                  <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, car)">
+                  <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit,car)">
                       <i class="fa fa-edit"></i>Edit</button>
-                  <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, car)">
+                  <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete,car)">
                       <i class="fa fa-remove"></i>Delete</button>
                   </td>
             </tr>
@@ -41,7 +41,7 @@
         <div class="form-group">
           <label for="car">Car name</label>
           <div class="input-group">
-            <input id="car" name="name" class="form-control" ngModel>
+            <input id="name" name="name" class="form-control" ngModel>
           </div>
         </div>
         <div>
@@ -68,7 +68,7 @@
         <div class="form-group"> 
          <label for="car">Car name</label> 
             <div class="input-group"> 
-              <input id="car" name="name" formControlName="name" class="form-control"> 
+              <input  formControlName="name" class="form-control"> 
             </div> 
         </div>
         <div class="border text-center">

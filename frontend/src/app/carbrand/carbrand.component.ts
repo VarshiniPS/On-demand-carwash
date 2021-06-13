@@ -5,7 +5,7 @@ import  { OrderService } from '../order.service';
 
 export class cars{
   constructor(
-     public _id:Number,
+     public _id:String,
      public name:string
   ){
     
