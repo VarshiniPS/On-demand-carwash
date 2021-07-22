@@ -6,7 +6,13 @@ Tell us your car location and we will come to you. With Green Wash, you can get 
 
 2.Each microservice stores its own persistent data using Mongodb.
 
-3.Implemented five microservices namely admin,customer,washer,order and payment.
+3.Implemented five microservices namely:
+
+* admin.
+* customer.
+* washer.
+* order.
+* payment.
 
 # Getting Started
 You'll need Git and Node.js (which comes with npm) installed on your computer.
